@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 1: Introduction to Web Platforms | Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="navbar__brand">Web Technologies</a>
+    <button class="navbar__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#lectures">Lectures</a></li>
+    </ul>
+  </header>
+
+  <div class="lecture-layout">
+    <aside class="lecture-sidebar">
+      <div class="lecture-sidebar__title">Lectures</div>
+      <ul class="lecture-sidebar__list">
+        <li><a href="lecture1.html">1. Introduction to Web Platforms</a></li>
+        <li><a href="lecture2.html">2. Categories of Web Applications</a></li>
+        <li><a href="lecture3.html">3. HTML Basics</a></li>
+        <li><a href="lecture4.html">4. Tables, Div, Span and Layout</a></li>
+        <li><a href="lecture5.html">5. HTML5 Introduction</a></li>
+        <li><a href="lecture6.html">6. HTML Forms</a></li>
+        <li><a href="lecture7.html">7. CSS Introduction</a></li>
+        <li><a href="lecture8.html">8. CSS Selectors</a></li>
+      </ul>
+    </aside>
+    <main class="lecture-main">
+      <section id="intro" class="tutorial-section">
+        <h1>Introduction to Web Platforms</h1>
+        <span class="lecture-badge">Lecture 1 &bull; Reading time: 8 minutes</span>
+        <p class="lecture-summary">
+          Web platforms form the foundation of how we access and interact with applications over the internet. This lecture introduces the client-server model, the role of web browsers, and how requests and responses flow between users and servers.
+        </p>
+      </section>
+
+      <section id="topics-covered" class="tutorial-section">
+        <h2>Topics Covered</h2>
+        <div class="topics-card">
+          <h3>Topics Covered:</h3>
+          <ul>
+            <li>What is a web platform</li>
+            <li>Client-server architecture</li>
+            <li>Web browsers and their role</li>
+            <li>HTTP request&ndash;response cycle</li>
+            <li>Front-end vs back-end</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="what-is-web-platform" class="tutorial-section">
+        <h2>What is a Web Platform</h2>
+        <p>
+          A web platform is the underlying software and infrastructure that enables applications and content to be delivered and used over the internet. Understanding this concept is essential for anyone building or using web technologies.
+        </p>
+        <div class="definition-box">
+          <strong>Definition</strong>
+          <p>A web platform is a software system that allows users to access and interact with applications and content over the internet through a browser or other client, typically using standardized protocols such as HTTP and HTTPS.</p>
+        </div>
+      </section>
+
+      <section id="key-components" class="tutorial-section">
+        <h2>Key Components of Web Platforms</h2>
+        <p>Web platforms are built from several core components that work together to deliver content and functionality.</p>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Infrastructure</h3>
+            <p class="tutorial-card__desc">Servers, networks, and hosting that store and deliver web content and applications.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Development Tools</h3>
+            <p class="tutorial-card__desc">Frameworks, editors, and APIs used to build and maintain web applications.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Content Management</h3>
+            <p class="tutorial-card__desc">Systems for creating, storing, and publishing digital content.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">User Interface</h3>
+            <p class="tutorial-card__desc">The visual and interactive layer that users see and interact with in the browser.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">APIs</h3>
+            <p class="tutorial-card__desc">Application Programming Interfaces that allow different systems to communicate and share data.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Security Features</h3>
+            <p class="tutorial-card__desc">Authentication, encryption, and policies that protect data and users.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="examples" class="tutorial-section">
+        <h2>Examples of Web Platforms</h2>
+        <p>Web platforms come in many forms, each serving different purposes and audiences.</p>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card tutorial-card--icon">
+            <div class="tutorial-card__icon" aria-hidden="true">&#128101;</div>
+            <h3 class="tutorial-card__title">Social Media Platforms</h3>
+            <p class="tutorial-card__desc">Facebook, Twitter, Instagram</p>
+          </div>
+          <div class="tutorial-card tutorial-card--icon">
+            <div class="tutorial-card__icon" aria-hidden="true">&#128722;</div>
+            <h3 class="tutorial-card__title">E-commerce Platforms</h3>
+            <p class="tutorial-card__desc">Shopify, WooCommerce</p>
+          </div>
+          <div class="tutorial-card tutorial-card--icon">
+            <div class="tutorial-card__icon" aria-hidden="true">&#128196;</div>
+            <h3 class="tutorial-card__title">Content Management Systems</h3>
+            <p class="tutorial-card__desc">WordPress, Drupal</p>
+          </div>
+          <div class="tutorial-card tutorial-card--icon">
+            <div class="tutorial-card__icon" aria-hidden="true">&#9729;</div>
+            <h3 class="tutorial-card__title">Cloud Platforms</h3>
+            <p class="tutorial-card__desc">AWS, Google Cloud, Azure</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="http" class="tutorial-section">
+        <h2>Web Communication (HTTP)</h2>
+        <p>
+          HTTP (HyperText Transfer Protocol) is the foundation of data communication on the web. When you open a webpage, your browser sends an HTTP request to a server, and the server responds with the requested content.
+        </p>
+        <div class="http-diagram">
+          <div class="http-diagram__row">
+            <span class="http-diagram__node">Browser</span>
+            <span class="http-diagram__arrow">&#8594; Request &#8594;</span>
+            <span class="http-diagram__node">Server</span>
+          </div>
+          <div class="http-diagram__row">
+            <span class="http-diagram__node">Server</span>
+            <span class="http-diagram__arrow">&#8594; Response &#8594;</span>
+            <span class="http-diagram__node">Browser</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="request-response-cycle" class="tutorial-section">
+        <h2>HTTP Request-Response Cycle</h2>
+        <p>The cycle of communication between client and server follows these steps:</p>
+        <ul>
+          <li>The user enters a URL or clicks a link in the browser.</li>
+          <li>The browser constructs an HTTP request and sends it to the server.</li>
+          <li>The server receives the request, processes it, and locates the requested resource.</li>
+          <li>The server sends back an HTTP response containing the resource (e.g. HTML, CSS, or data) and a status code.</li>
+          <li>The browser receives the response and renders the content for the user.</li>
+        </ul>
+      </section>
+
+      <section id="http-methods" class="tutorial-section">
+        <h2>HTTP Methods</h2>
+        <p>HTTP defines several methods that indicate the desired action to be performed on a resource.</p>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>GET</td><td>Retrieve data</td></tr>
+              <tr><td>POST</td><td>Submit data</td></tr>
+              <tr><td>PUT / PATCH</td><td>Update existing data</td></tr>
+              <tr><td>DELETE</td><td>Remove data</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="status-codes" class="tutorial-section">
+        <h2>HTTP Status Codes</h2>
+        <p>Every HTTP response includes a status code that indicates whether the request succeeded or how it failed.</p>
+        <div class="status-codes">
+          <div class="status-code-box status-code-box--1xx">1xx<br><span>Informational</span></div>
+          <div class="status-code-box status-code-box--2xx">2xx<br><span>Success</span></div>
+          <div class="status-code-box status-code-box--3xx">3xx<br><span>Redirection</span></div>
+          <div class="status-code-box status-code-box--4xx">4xx<br><span>Client Error</span></div>
+          <div class="status-code-box status-code-box--5xx">5xx<br><span>Server Error</span></div>
+        </div>
+      </section>
+
+      <section id="https" class="tutorial-section">
+        <h2>HTTPS Security</h2>
+        <p>
+          HTTPS (HTTP Secure) is the encrypted version of HTTP. It uses SSL/TLS (Secure Sockets Layer / Transport Layer Security) to encrypt data between the browser and server, protecting it from eavesdropping and tampering.
+        </p>
+        <div class="info-box">
+          <strong>Encryption:</strong> HTTPS encrypts the data in transit so that even if someone intercepts the connection, they cannot read or modify the content. SSL/TLS certificates also verify that you are connected to the real server.
+        </div>
+        <p><strong>Security benefits of HTTPS:</strong></p>
+        <ul>
+          <li>Encryption of data in transit</li>
+          <li>Authentication of the server (via certificates)</li>
+          <li>Integrity: detection of modified data</li>
+          <li>Trust and better ranking in search engines</li>
+        </ul>
+      </section>
+
+      <section id="web-timeline" class="tutorial-section">
+        <h2>Web Generations</h2>
+        <p>The web has evolved through distinct phases, each with different capabilities and focus.</p>
+        <div class="timeline">
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__label">Web 1.0</div>
+            <div class="timeline__desc">Static pages, read-only</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__label">Web 2.0</div>
+            <div class="timeline__desc">Dynamic, social, user-generated</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__label">Web 3.0</div>
+            <div class="timeline__desc">Semantic web, linked data</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__label">Web 4.0</div>
+            <div class="timeline__desc">IoT, ubiquitous computing</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__dot"></div>
+            <div class="timeline__label">Web 5.0</div>
+            <div class="timeline__desc">Emerging, contextual, immersive</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="standards" class="tutorial-section">
+        <h2>Web Standards</h2>
+        <p>Standards ensure that the web works consistently across browsers and devices. Key organizations include:</p>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">W3C</h3>
+            <p class="tutorial-card__desc">World Wide Web Consortium—develops standards for HTML, CSS, and many web technologies.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">IETF</h3>
+            <p class="tutorial-card__desc">Internet Engineering Task Force—develops and promotes standards such as HTTP and TCP/IP.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">WHATWG</h3>
+            <p class="tutorial-card__desc">Web Hypertext Application Technology Working Group—maintains the HTML Living Standard.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="constraints" class="tutorial-section">
+        <h2>Web Constraints</h2>
+        <p>Building for the web involves working within various constraints that affect design and implementation.</p>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Technical Constraints</h3>
+            <p class="tutorial-card__desc">Browser compatibility, performance, network latency, and device capabilities.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Legal Constraints</h3>
+            <p class="tutorial-card__desc">Privacy laws (e.g. GDPR), accessibility requirements, and intellectual property.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Design Constraints</h3>
+            <p class="tutorial-card__desc">Screen sizes, input methods, and user expectations for usability and accessibility.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="real-world" class="tutorial-section">
+        <h2>Real World Web Platforms</h2>
+        <p>Familiar examples of large-scale web platforms that illustrate these concepts in practice:</p>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Amazon</h3>
+            <p class="tutorial-card__desc">E-commerce and cloud platform serving millions of users and businesses.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Facebook</h3>
+            <p class="tutorial-card__desc">Social media platform for connecting people and sharing content.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Netflix</h3>
+            <p class="tutorial-card__desc">Streaming platform delivering video content over the web.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">WordPress</h3>
+            <p class="tutorial-card__desc">CMS powering a large share of the world's websites.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Shopify</h3>
+            <p class="tutorial-card__desc">E-commerce platform enabling businesses to run online stores.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="code-example" class="tutorial-section code-section">
+        <h2>Code Example</h2>
+        <p>Simple page with a title, heading, and paragraph. Run it to see how it looks.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+XG48aHRtbD5cbjxoZWFkPlxuPHRpdGxlPk15IFdlYiBQYWdlPC90aXRsZT5cbjwvaGVhZD5cblxuPGJvZHk+XG48aDE+V2VsY29tZSB0byBXZWIgVGVjaG5vbG9naWVzPC9oMT5cbjxwPlRoaXMgaXMgYSBzaW1wbGUgSFRNTCBwYWdlLjwvcD5cbjwvYm9keT5cbjwvaHRtbD4=">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;title&gt;</span>My Web Page<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;h1&gt;</span>Welcome to Web Technologies<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>This is a simple HTML page.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+
+<span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="practice" class="tutorial-section code-section">
+        <h2>End-of-Lecture Practice</h2>
+        <p>Practice page for Lecture 1. Use Try it Yourself to run and play with it.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPHRpdGxlPldlYiBQbGF0Zm9ybXMgLSBQcmFjdGljZTwvdGl0bGU+CjwvaGVhZD4KPGJvZHk+CjxoMT5VbmRlcnN0YW5kaW5nIFdlYiBQbGF0Zm9ybXM8L2gxPgo8cD5UaGlzIHByYWN0aWNlIHBhZ2UgcmVpbmZvcmNlcyB0aGUgY29uY2VwdHMgZnJvbSBMZWN0dXJlIDEuPC9wPgo8aDI+Q2xpZW50LVNlcnZlciBNb2RlbDwvaDI+CjxwPlRoZSBicm93c2VyIChjbGllbnQpIHNlbmRzIHJlcXVlc3RzIHRvIHRoZSBzZXJ2ZXIuIFRoZSBzZXJ2ZXIgcmVzcG9uZHMgd2l0aCBIVE1MIGFuZCBvdGhlciByZXNvdXJjZXMuPC9wPgo8aDI+S2V5IENvbXBvbmVudHM8L2gyPgo8dWw+CjxsaT5JbmZyYXN0cnVjdHVyZTogc2VydmVycyBhbmQgbmV0d29ya3M8L2xpPgo8bGk+QnJvd3NlcnM6IGRpc3BsYXkgY29udGVudCB0byB1c2VyczwvbGk+CjxsaT5EZXZlbG9wbWVudCB0b29sczogYnVpbGQgd2ViIGFwcGxpY2F0aW9uczwvbGk+CjwvdWw+Cjxmb290ZXI+PHA+V2ViIFRlY2hub2xvZ2llcyAtIExlY3R1cmUgMSBQcmFjdGljZTwvcD48L2Zvb3Rlcj4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Practice Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html lang="en"&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Web Platforms - Practice<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;h1&gt;</span>Understanding Web Platforms<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>This practice page reinforces the concepts from Lecture 1.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Client-Server Model<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;p&gt;</span>The browser (client) sends requests to the server. The server responds with HTML.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Key Components<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;ul&gt;</span><span class="tag">&lt;li&gt;</span>Infrastructure<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;li&gt;</span>Browsers<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;li&gt;</span>Development tools<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;/ul&gt;</span>
+<span class="tag">&lt;footer&gt;</span><span class="tag">&lt;p&gt;</span>Web Technologies - Lecture 1 Practice<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/footer&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="tutorial-section">
+        <h2>Lecture Summary</h2>
+        <div class="summary-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>Web platforms enable modern web applications</li>
+            <li>HTTP allows communication between browser and server</li>
+            <li>Web standards ensure compatibility</li>
+            <li>Security and constraints must be considered in development</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="lecture-nav-buttons">
+        <a href="../index.html" class="btn btn--secondary">&#8592; Back to Home</a>
+        <a href="lecture2.html" class="btn">Next Lecture &#8594;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

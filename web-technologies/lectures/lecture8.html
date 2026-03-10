@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 8: CSS Selectors | Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+  <style>
+    .demo-hover-btn { padding: 0.5rem 1rem; border: 1px solid #ccc; border-radius: 6px; cursor: pointer; background: #f0f0f0; font-size: 1rem; }
+    .demo-hover-btn:hover { background-color: orange; color: #1a1a1a; }
+    .demo-first-letter::first-letter { font-size: 30px; color: red; }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="navbar__brand">Web Technologies</a>
+    <button class="navbar__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#lectures">Lectures</a></li>
+    </ul>
+  </header>
+
+  <div class="lecture-layout">
+    <aside class="lecture-sidebar">
+      <div class="lecture-sidebar__title">Lectures</div>
+      <ul class="lecture-sidebar__list">
+        <li><a href="lecture1.html">1. Introduction to Web Platforms</a></li>
+        <li><a href="lecture2.html">2. Categories of Web Applications</a></li>
+        <li><a href="lecture3.html">3. HTML Basics</a></li>
+        <li><a href="lecture4.html">4. Tables, Div, Span and Layout</a></li>
+        <li><a href="lecture5.html">5. HTML5 Introduction</a></li>
+        <li><a href="lecture6.html">6. HTML Forms</a></li>
+        <li><a href="lecture7.html">7. CSS Introduction</a></li>
+        <li><a href="lecture8.html">8. CSS Selectors</a></li>
+      </ul>
+    </aside>
+    <main class="lecture-main">
+      <section id="intro" class="tutorial-section">
+        <h1>CSS Selectors</h1>
+        <span class="lecture-badge">Lecture 8 &bull; Reading time: 8 minutes</span>
+        <p class="lecture-summary">
+          CSS selectors are patterns used to target HTML elements and apply styles to them. This lecture covers element, descendant, child, and attribute selectors, plus pseudo-classes and pseudo-elements.
+        </p>
+      </section>
+
+      <section id="what-are-selectors" class="tutorial-section">
+        <h2>What Are CSS Selectors?</h2>
+        <p>
+          <strong>CSS selectors</strong> are patterns used to select HTML elements. They let you apply styles to specific elements—by tag name, relationship, attribute, or state.
+        </p>
+        <pre class="pre-block"><code>p {
+  color: blue;
+}</code></pre>
+        <p>This selector applies the style to <strong>all</strong> <code>&lt;p&gt;</code> (paragraph) elements on the page. Selectors are the left-hand side of a CSS rule; the declaration block (inside the braces) is what gets applied to the matched elements.</p>
+      </section>
+
+      <section id="try-selector-example" class="tutorial-section code-section">
+        <h2>Try it: Element Selector Example</h2>
+        <p>Element selector styles all <code>p</code> tags. Run it to see blue text.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+U2VsZWN0b3IgRXhhbXBsZTwvdGl0bGU+CjxzdHlsZT5wIHsgY29sb3I6IGJsdWU7IH08L3N0eWxlPgo8L2hlYWQ+Cjxib2R5Pgo8cD5UaGlzIHBhcmFncmFwaCBpcyBzdHlsZWQgd2l0aCBDU1MuPC9wPgo8L2JvZHk+CjwvaHRtbD4=">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;title&gt;</span>Selector Example<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;style&gt;</span>p { color: blue; }<span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;p&gt;</span>This paragraph is styled with CSS.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="descendant-selector" class="tutorial-section code-section">
+        <h2>Descendant Selector</h2>
+        <p><strong>Code explanation:</strong> The descendant selector <code>ol li</code> selects all <code>li</code> inside <code>ol</code> at any nesting level. Run the example to see all list items styled blue.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+RGVzY2VuZGFudCBTZWxlY3RvcjwvdGl0bGU+CjxzdHlsZT4Kb2wgbGkgeyBjb2xvcjogYmx1ZTsgfQo8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5Pgo8b2w+CjxsaT5MaXN0IGl0ZW0gb25lPC9saT4KPGxpPkxpc3QgaXRlbSB0d288L2xpPgo8dWw+PGxpPlN1Ymxpc3QgaXRlbSBBPC9saT48bGk+U3VibGlzdCBpdGVtIEI8L2xpPjwvdWw+CjxsaT5MaXN0IGl0ZW0gdGhyZWU8L2xpPgo8L29sPgo8L2JvZHk+CjwvaHRtbD4=">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;title&gt;</span>Descendant Selector<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;style&gt;</span>ol li { color: blue; }<span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;ol&gt;</span>
+<span class="tag">&lt;li&gt;</span>List item one<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;li&gt;</span>List item two<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;ul&gt;</span><span class="tag">&lt;li&gt;</span>Sublist item A<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;li&gt;</span>Sublist item B<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;/ul&gt;</span>
+<span class="tag">&lt;li&gt;</span>List item three<span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;/ol&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+        <p>This selector targets <strong>all</strong> <code>li</code> elements inside an <code>ol</code>—including those inside the nested <code>ul</code>. So “List item one”, “List item two”, “Sublist item A”, “Sublist item B”, and “List item three” would all be blue.</p>
+      </section>
+
+      <section id="child-selector" class="tutorial-section">
+        <h2>Child Selector</h2>
+        <p>
+          The <strong>child selector</strong> selects only <strong>direct child</strong> elements. It uses the <strong>&gt;</strong> combinator between parent and child.
+        </p>
+        <pre class="pre-block"><code>ol &gt; li {
+  color: blue;
+}</code></pre>
+        <p><strong>Difference from descendant:</strong> <code>ol li</code> matches every <code>li</code> inside <code>ol</code> (at any depth). <code>ol &gt; li</code> matches only <code>li</code> elements whose direct parent is <code>ol</code>. So with the HTML above, “Sublist item A” and “Sublist item B” would <strong>not</strong> be selected by <code>ol &gt; li</code>, because their direct parent is <code>ul</code>, not <code>ol</code>.</p>
+      </section>
+
+      <section id="attribute-selector" class="tutorial-section">
+        <h2>Attribute Selector</h2>
+        <p>
+          <strong>Attribute selectors</strong> select elements based on their <strong>attributes</strong> and optionally their values. They are written in square brackets.
+        </p>
+        <p><strong>Example HTML:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;ul&gt;</span>
+
+<span class="tag">&lt;li&gt;</span><span class="tag">&lt;a href="https://google.com"&gt;</span>Google<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;li&gt;</span><span class="tag">&lt;a href="https://facebook.com"&gt;</span>Facebook<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span>
+<span class="tag">&lt;li&gt;</span><span class="tag">&lt;a href="https://amazon.com"&gt;</span>Amazon<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/li&gt;</span>
+
+<span class="tag">&lt;/ul&gt;</span></code></pre>
+        <p><strong>Example CSS:</strong></p>
+        <pre class="pre-block"><code>a {
+  color: green;
+}
+
+a[href="https://facebook.com"] {
+  color: blue;
+}</code></pre>
+        <p>All links are green. The rule <code>a[href="https://facebook.com"]</code> targets only the anchor whose <code>href</code> is exactly <code>https://facebook.com</code>, so that link is blue. You can also use patterns like <code>[href^="https"]</code> (starts with) or <code>[href*="google"]</code> (contains).</p>
+      </section>
+
+      <section id="pseudo-class" class="tutorial-section code-section">
+        <h2>Pseudo-Class Selectors</h2>
+        <p><strong>Code explanation:</strong> Pseudo-classes like <code>:hover</code> style elements in special states. This example changes the button background to orange when you hover. Run the code and hover over the button to see the effect.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+UHNldWRvLUNsYXNzIEV4YW1wbGU8L3RpdGxlPgo8c3R5bGU+CmJ1dHRvbjpob3ZlciB7IGJhY2tncm91bmQtY29sb3I6IG9yYW5nZTsgfQo8L3N0eWxlPgo8L2hlYWQ+Cjxib2R5Pgo8YnV0dG9uIHR5cGU9ImJ1dHRvbiI+Q2xpY2sgTWUhPC9idXR0b24+CjwvYm9keT4KPC9odG1sPg==">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;title&gt;</span>Pseudo-Class Example<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;style&gt;</span>button:hover { background-color: orange; }<span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;button type="button"&gt;</span>Click Me!<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+        <p>This rule changes the button’s background to orange when the user hovers the mouse over it. Other common pseudo-classes include <code>:focus</code>, <code>:first-child</code>, <code>:nth-child(n)</code>, and <code>:disabled</code>.</p>
+        <div class="info-box">
+          <strong>Preview:</strong> Hover over the button to see the effect.
+          <div style="margin-top:0.75rem;">
+            <button type="button" class="demo-hover-btn">Click Me!</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="pseudo-elements" class="tutorial-section">
+        <h2>CSS Pseudo-Elements</h2>
+        <p>
+          <strong>Pseudo-elements</strong> style a <strong>specific part</strong> of an element (e.g. the first letter, the first line, or generated content before/after). They are written with two colons, e.g. <code>::before</code>, <code>::first-letter</code>.
+        </p>
+        <p>Unlike pseudo-classes (which target a state), pseudo-elements target a subpart of the element’s content or create virtual content that you can style.</p>
+      </section>
+
+      <section id="common-pseudo-elements" class="tutorial-section">
+        <h2>Common Pseudo-Elements</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Selector</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>::before</code></td><td>Inserts content before the element (styled with CSS)</td></tr>
+              <tr><td><code>::after</code></td><td>Inserts content after the element</td></tr>
+              <tr><td><code>::first-letter</code></td><td>Styles the first letter of text</td></tr>
+              <tr><td><code>::first-line</code></td><td>Styles the first line of text</td></tr>
+              <tr><td><code>::marker</code></td><td>Styles list markers (bullets, numbers)</td></tr>
+              <tr><td><code>::selection</code></td><td>Styles text when selected by the user</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="pseudo-element-example" class="tutorial-section">
+        <h2>Example of Pseudo-Elements</h2>
+        <pre class="pre-block"><code>p::first-letter {
+  font-size: 30px;
+  color: red;
+}</code></pre>
+        <p>This rule styles only the <strong>first letter</strong> of each paragraph: larger and red. The rest of the paragraph is unchanged.</p>
+        <div class="info-box">
+          <strong>Preview:</strong>
+          <p class="demo-first-letter" style="margin:0.75rem 0 0;">A paragraph with a styled first letter. The rest of the text stays normal.</p>
+        </div>
+      </section>
+
+      <section id="selector-comparison" class="tutorial-section">
+        <h2>Selector Comparison</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Selector Type</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Element Selector</strong></td><td><code>p</code></td></tr>
+              <tr><td><strong>Descendant Selector</strong></td><td><code>ol li</code></td></tr>
+              <tr><td><strong>Child Selector</strong></td><td><code>ol &gt; li</code></td></tr>
+              <tr><td><strong>Attribute Selector</strong></td><td><code>a[href="..."]</code></td></tr>
+              <tr><td><strong>Pseudo-Class</strong></td><td><code>button:hover</code></td></tr>
+              <tr><td><strong>Pseudo-Element</strong></td><td><code>p::first-letter</code></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="practice" class="tutorial-section code-section">
+        <h2>End-of-Lecture Practice</h2>
+        <p><strong>Put it all together:</strong> This practice page demonstrates element, class, ID, descendant, child, pseudo-class, and pseudo-element selectors from Lecture 8. Use <strong>Try it Yourself</strong> to run and experiment.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPHRpdGxlPkNTUyBTZWxlY3RvcnMgLSBQcmFjdGljZTwvdGl0bGU+CjxzdHlsZT4KYm9keSB7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOyBwYWRkaW5nOiAycmVtOyB9CmFydGljbGUgcCB7IGNvbG9yOiAjMjk4MGI5OyB9CmFydGljbGUgPiBwIHsgZm9udC13ZWlnaHQ6IGJvbGQ7IH0KLmJveCB7IGJhY2tncm91bmQ6ICNmMGYwZjA7IHBhZGRpbmc6IDFyZW07IG1hcmdpbjogMC41cmVtIDA7IH0KI21haW4tdGl0bGUgeyBjb2xvcjogIzJjM2U1MDsgfQphOmhvdmVyIHsgY29sb3I6IG9yYW5nZTsgdGV4dC1kZWNvcmF0aW9uOiBub25lOyB9CnA6OmZpcnN0LWxldHRlciB7IGZvbnQtc2l6ZTogMS41ZW07IGNvbG9yOiAjZTc0YzNjOyB9Cjwvc3R5bGU+CjwvaGVhZD4KPGJvZHk+CjxoMSBpZD0ibWFpbi10aXRsZSI+U2VsZWN0b3IgUHJhY3RpY2U8L2gxPgo8YXJ0aWNsZT4KPHA+RGVzY2VuZGFudDogVGhpcyBwIGlzIGluc2lkZSBhcnRpY2xlIChhcnRpY2xlIHApPC9wPgo8cD5DaGlsZDogRGlyZWN0IGNoaWxkIG9mIGFydGljbGUgKGFydGljbGUgPiBwKTwvcD4KPC9hcnRpY2xlPgo8ZGl2IGNsYXNzPSJib3giPkNsYXNzIHNlbGVjdG9yICguYm94KTwvZGl2Pgo8cD48YSBocmVmPSIjIj5Ib3ZlciBvdmVyIHRoaXMgbGluazwvYT4gLSBwc2V1ZG8tY2xhc3MgOmhvdmVyPC9wPgo8cD5Qc2V1ZG8tZWxlbWVudDogRmlyc3QgbGV0dGVyIGlzIHN0eWxlZCB3aXRoIDo6Zmlyc3QtbGV0dGVyLjwvcD4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Practice Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html lang="en"&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>CSS Selectors - Practice<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;style&gt;</span>article p{color:#2980b9}article&gt;p{font-weight:bold}.box{background:#f0f0f0;padding:1rem;margin:.5rem 0}#main-title{color:#2c3e50}a:hover{color:orange}p::first-letter{font-size:1.5em;color:#e74c3c}<span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span><span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;h1 id="main-title"&gt;</span>Selector Practice<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;article&gt;</span><span class="tag">&lt;p&gt;</span>Descendant: article p<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;p&gt;</span>Child: article &gt; p<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/article&gt;</span>
+<span class="tag">&lt;div class="box"&gt;</span>Class selector (.box)<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;p&gt;</span><span class="tag">&lt;a href="#"&gt;</span>Hover over this link<span class="tag">&lt;/a&gt;</span> - :hover<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;p&gt;</span>Pseudo-element ::first-letter styled.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="tutorial-section">
+        <h2>Lecture Summary</h2>
+        <div class="summary-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>CSS selectors target HTML elements so you can apply styles to them.</li>
+            <li>Descendant selectors (e.g. <code>ol li</code>) select elements inside other elements at any depth.</li>
+            <li>Child selectors (e.g. <code>ol &gt; li</code>) select only direct children.</li>
+            <li>Attribute selectors (e.g. <code>a[href="..."]</code>) target elements by attribute values.</li>
+            <li>Pseudo-classes (e.g. <code>:hover</code>) style elements based on state.</li>
+            <li>Pseudo-elements (e.g. <code>::first-letter</code>, <code>::before</code>) style specific parts of elements.</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="lecture-nav-buttons">
+        <a href="lecture7.html" class="btn btn--secondary">&#8592; Previous Lecture</a>
+        <a href="lecture1.html" class="btn">Next Lecture &#8594;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

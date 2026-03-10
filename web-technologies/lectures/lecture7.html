@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 7: CSS Introduction | Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="navbar__brand">Web Technologies</a>
+    <button class="navbar__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#lectures">Lectures</a></li>
+    </ul>
+  </header>
+
+  <div class="lecture-layout">
+    <aside class="lecture-sidebar">
+      <div class="lecture-sidebar__title">Lectures</div>
+      <ul class="lecture-sidebar__list">
+        <li><a href="lecture1.html">1. Introduction to Web Platforms</a></li>
+        <li><a href="lecture2.html">2. Categories of Web Applications</a></li>
+        <li><a href="lecture3.html">3. HTML Basics</a></li>
+        <li><a href="lecture4.html">4. Tables, Div, Span and Layout</a></li>
+        <li><a href="lecture5.html">5. HTML5 Introduction</a></li>
+        <li><a href="lecture6.html">6. HTML Forms</a></li>
+        <li><a href="lecture7.html">7. CSS Introduction</a></li>
+        <li><a href="lecture8.html">8. CSS Selectors</a></li>
+      </ul>
+    </aside>
+    <main class="lecture-main">
+      <section id="intro" class="tutorial-section">
+        <h1>CSS Introduction</h1>
+        <span class="lecture-badge">Lecture 7 &bull; Reading time: 10 minutes</span>
+        <p class="lecture-summary">
+          CSS is the language used to style HTML pages and control layout. This lecture introduces CSS syntax, common properties, ways to apply styles, the box model, and specificity.
+        </p>
+      </section>
+
+      <section id="what-is-css" class="tutorial-section">
+        <h2>What is CSS?</h2>
+        <p>
+          <strong>CSS</strong> stands for <strong>Cascading Style Sheets</strong>. It is used to control the presentation of web pages.
+        </p>
+        <p>CSS is used to control:</p>
+        <ul>
+          <li><strong>Colors</strong> — text, backgrounds, borders</li>
+          <li><strong>Fonts</strong> — typeface, size, weight</li>
+          <li><strong>Layout</strong> — position of elements, columns, grids</li>
+          <li><strong>Spacing</strong> — margin, padding</li>
+          <li><strong>Positioning of elements</strong> — normal flow, flexbox, grid, or absolute/fixed</li>
+        </ul>
+        <p>CSS allows you to style multiple web pages at once by linking one or more external stylesheets, so you can keep a consistent look and make global changes in one place.</p>
+      </section>
+
+      <section id="why-css" class="tutorial-section">
+        <h2>Why CSS is Important</h2>
+        <p>Benefits of using CSS:</p>
+        <div class="info-box">
+          <strong>Benefits include:</strong>
+          <ul style="margin:0.5rem 0 0 1.25rem; padding:0;">
+            <li><strong>Separation of design and structure</strong> — HTML for content, CSS for appearance</li>
+            <li><strong>Reusable styles</strong> — define once, apply to many elements or pages</li>
+            <li><strong>Faster website maintenance</strong> — change one file to update the look site-wide</li>
+            <li><strong>Consistent design across pages</strong> — shared stylesheets keep branding and layout unified</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="css-syntax" class="tutorial-section">
+        <h2>CSS Syntax</h2>
+        <p>A CSS rule consists of a <strong>selector</strong> and a <strong>declaration block</strong>. The selector chooses which element(s) to style; the block contains one or more <code>property: value;</code> declarations.</p>
+        <pre class="pre-block"><code>h1 {
+  color: red;
+  text-align: right;
+}</code></pre>
+        <p>Here <code>h1</code> is the selector. Inside the braces: <code>color</code> is the <strong>property</strong>, <code>red</code> is the <strong>value</strong>. Each declaration ends with a semicolon.</p>
+      </section>
+
+      <section id="common-properties" class="tutorial-section">
+        <h2>Common CSS Properties</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>color</code></td><td>Sets text color</td></tr>
+              <tr><td><code>font-family</code></td><td>Defines font type</td></tr>
+              <tr><td><code>font-size</code></td><td>Controls text size</td></tr>
+              <tr><td><code>background-color</code></td><td>Sets background color</td></tr>
+              <tr><td><code>margin</code></td><td>Controls outer spacing (outside the border)</td></tr>
+              <tr><td><code>padding</code></td><td>Controls inner spacing (inside the border)</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ways-to-use-css" class="tutorial-section">
+        <h2>Ways to Use CSS</h2>
+        <p>There are three ways to apply CSS to HTML:</p>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Where Written</th>
+                <th>Best Use</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Inline CSS</strong></td><td>Inside HTML tag (style attribute)</td><td>Small, one-off changes</td></tr>
+              <tr><td><strong>Internal CSS</strong></td><td>Inside <code>&lt;style&gt;</code> tag in the page</td><td>Single-page styling</td></tr>
+              <tr><td><strong>External CSS</strong></td><td>Separate <code>.css</code> file</td><td>Large projects, multiple pages</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="inline-css" class="tutorial-section code-section">
+        <h2>Inline CSS Example</h2>
+        <p>Inline style in the <code>style</code> attribute. Run it to see red text.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+SW5saW5lIENTUzwvdGl0bGU+CjwvaGVhZD4KPGJvZHk+CjxwIHN0eWxlPSJjb2xvcjpyZWQ7Ij5UaGlzIGlzIHJlZCB0ZXh0PC9wPgo8L2JvZHk+CjwvaHRtbD4=">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;title&gt;</span>Inline CSS<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;p style="color:red;"&gt;</span>This is red text<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+        <div class="info-box">
+          <strong>Preview:</strong>
+          <p style="color:red; margin:0.5rem 0 0;">This is red text</p>
+        </div>
+      </section>
+
+      <section id="internal-css" class="tutorial-section code-section">
+        <h2>Internal CSS Example</h2>
+        <p>Internal CSS in a <code>&lt;style&gt;</code> tag. Run it to see the result.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+SW50ZXJuYWwgQ1NTPC90aXRsZT4KPHN0eWxlPgpwIHsgY29sb3I6IGJsdWU7IH0KPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KPHA+VGhpcyBwYXJhZ3JhcGggaXMgc3R5bGVkIHdpdGggaW50ZXJuYWwgQ1NTLjwvcD4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;title&gt;</span>Internal CSS<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;style&gt;</span>p { color: blue; }<span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;p&gt;</span>This paragraph is styled with internal CSS.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="external-css" class="tutorial-section">
+        <h2>External CSS Example</h2>
+        <p>External CSS is stored in a separate file and linked with <code>&lt;link&gt;</code>. This is the preferred approach for multi-page sites.</p>
+        <p><strong>In your HTML (e.g. in <code>&lt;head&gt;</code>):</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;link rel="stylesheet" href="style.css"&gt;</span></code></pre>
+        <p><strong>In <code>style.css</code>:</strong></p>
+        <pre class="pre-block"><code>p {
+  color: green;
+}</code></pre>
+      </section>
+
+      <section id="typeface-vs-font" class="tutorial-section">
+        <h2>Typeface vs Font</h2>
+        <p><strong>Typeface</strong> is the design of the characters (e.g. Arial, Times New Roman). <strong>Font</strong> is a specific size and style of a typeface (e.g. Arial Bold 14px).</p>
+        <p>In CSS you often set several font properties at once with the shorthand <code>font</code>:</p>
+        <pre class="pre-block"><code>font: bold 40px sans-serif;</code></pre>
+      </section>
+
+      <section id="font-types" class="tutorial-section">
+        <h2>Types of Fonts</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Font Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Serif</strong></td><td>Decorative edges (serifs) on letters; traditional, print-like</td></tr>
+              <tr><td><strong>Sans-serif</strong></td><td>Clean, modern fonts without serifs</td></tr>
+              <tr><td><strong>Monospace</strong></td><td>Equal character width; often used for code</td></tr>
+              <tr><td><strong>Cursive</strong></td><td>Handwriting-style fonts</td></tr>
+              <tr><td><strong>Fantasy</strong></td><td>Decorative, display fonts</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="serif-vs-sans" class="tutorial-section">
+        <h2>Serif vs Sans-serif</h2>
+        <p><strong>Serif</strong> fonts have small strokes (serifs) at the ends of letters; they are common in print and can look formal. <strong>Sans-serif</strong> fonts do not have these strokes; they look clean and minimal.</p>
+        <p>Sans-serif fonts are usually easier to read on screens, especially at smaller sizes. Serif fonts are often used for headings or long print-like text. For body text on the web, sans-serif (e.g. Arial, Helvetica, system fonts) is very common.</p>
+      </section>
+
+      <section id="box-model" class="tutorial-section">
+        <h2>CSS Box Model</h2>
+        <p>Every HTML element is treated as a <strong>box</strong>. The box model describes how content, padding, border, and margin combine to form the total size and spacing of an element.</p>
+        <p><strong>Components (from inside to outside):</strong></p>
+        <ul>
+          <li><strong>Content</strong> — the text or other content inside the element</li>
+          <li><strong>Padding</strong> — space between the content and the border</li>
+          <li><strong>Border</strong> — the edge around the padding</li>
+          <li><strong>Margin</strong> — space outside the border (between this element and others)</li>
+        </ul>
+      </section>
+
+      <section id="box-model-example" class="tutorial-section code-section">
+        <h2>Box Model Example</h2>
+        <p>Box model: content, padding, border, margin. Run it to see the layout.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+Qm94IE1vZGVsPC90aXRsZT4KPHN0eWxlPgpkaXYgeyBib3JkZXI6IDJweCBzb2xpZCAjMzMzOyBwYWRkaW5nOiAyMHB4OyBtYXJnaW46IDEwcHg7IH0KPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KPGRpdj5Db250ZW50IHdpdGggYm9yZGVyLCBwYWRkaW5nLCBhbmQgbWFyZ2luPC9kaXY+CjwvYm9keT4KPC9odG1sPg==">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;title&gt;</span>Box Model<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;style&gt;</span>div { border: 2px solid #333; padding: 20px; margin: 10px; }<span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;div&gt;</span>Content with border, padding, and margin<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+        <div class="info-box">
+          <strong>Preview:</strong>
+          <div style="background-color: orange; width: 200px; height: 200px; padding: 20px; margin: 20px; border: 3px dashed black; box-sizing: border-box;">
+            Content area
+          </div>
+        </div>
+      </section>
+
+      <section id="styling-tables" class="tutorial-section">
+        <h2>Styling Tables with CSS</h2>
+        <p>You can style tables with borders, padding, and collapse so cells share borders:</p>
+        <pre class="pre-block"><code>table {
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: 5px;
+}</code></pre>
+      </section>
+
+      <section id="identifying-elements" class="tutorial-section">
+        <h2>Identifying Elements in CSS</h2>
+        <p>CSS selectors target elements so you can apply styles. Common ways to identify elements:</p>
+        <ul>
+          <li><strong>Element (tag) selector</strong> — <code>div</code>, <code>span</code>, <code>p</code>, <code>h1</code> — targets all elements of that type</li>
+          <li><strong>ID selector</strong> — <code>#foo</code> — targets the single element with <code>id="foo"</code></li>
+          <li><strong>Class selector</strong> — <code>.baz</code> — targets all elements with <code>class="baz"</code></li>
+        </ul>
+      </section>
+
+      <section id="id-vs-class" class="tutorial-section">
+        <h2>ID vs Class</h2>
+        <p>Use <code>id</code> for a unique element on the page; use <code>class</code> when multiple elements share the same style or behavior.</p>
+        <p><strong>Example HTML:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;h1 id="foo"&gt;</span>Heading1<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;h1 class="baz"&gt;</span>Heading3<span class="tag">&lt;/h1&gt;</span></code></pre>
+        <p><strong>Example CSS:</strong></p>
+        <pre class="pre-block"><code>#foo {
+  color: blue;
+}
+
+.baz {
+  color: red;
+}</code></pre>
+      </section>
+
+      <section id="specificity" class="tutorial-section">
+        <h2>CSS Specificity</h2>
+        <p>When more than one rule could apply to the same element, the browser uses <strong>specificity</strong> to decide which style wins. From <strong>highest priority to lowest</strong>:</p>
+        <ol>
+          <li><strong>Inline styles</strong> (in the <code>style</code> attribute)</li>
+          <li><strong>ID selectors</strong> (<code>#id</code>)</li>
+          <li><strong>Class selectors</strong> (and attributes, pseudo-classes)</li>
+          <li><strong>Element selectors</strong> (and pseudo-elements)</li>
+        </ol>
+        <p>More specific selectors override less specific ones. In case of a tie, the rule that appears later in the CSS wins.</p>
+      </section>
+
+      <section id="specificity-example" class="tutorial-section">
+        <h2>Specificity Example</h2>
+        <pre class="pre-block"><code>h1 {
+  color: red;
+}
+
+#foo {
+  color: blue;
+}</code></pre>
+        <p>For an element <code>&lt;h1 id="foo"&gt;</code>, both rules apply. The <strong>ID selector</strong> <code>#foo</code> has higher specificity than the <strong>element selector</strong> <code>h1</code>, so the heading will be <strong>blue</strong>. The ID overrides the element selector.</p>
+      </section>
+
+      <section id="practice" class="tutorial-section code-section">
+        <h2>End-of-Lecture Practice</h2>
+        <p>Practice page for Lecture 7. Try it Yourself to run and experiment.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPHRpdGxlPkNTUyBJbnRyb2R1Y3Rpb24gLSBQcmFjdGljZTwvdGl0bGU+CjxzdHlsZT4KYm9keSB7IGZvbnQtZmFtaWx5OiBzYW5zLXNlcmlmOyBtYXgtd2lkdGg6IDYwMHB4OyBtYXJnaW46IDJyZW0gYXV0bzsgcGFkZGluZzogMXJlbTsgfQpoMSB7IGNvbG9yOiAjMmMzZTUwOyBib3JkZXItYm90dG9tOiAycHggc29saWQgIzM0OThkYjsgfQouYm94IHsgYmFja2dyb3VuZDogI2VjZjBmMTsgcGFkZGluZzogMTVweDsgbWFyZ2luOiAxMHB4IDA7IGJvcmRlci1yYWRpdXM6IDZweDsgfQouaGlnaGxpZ2h0IHsgY29sb3I6ICNlNzRjM2M7IGZvbnQtd2VpZ2h0OiBib2xkOyB9CiNmb290ZXIgeyBtYXJnaW4tdG9wOiAycmVtOyBjb2xvcjogIzdmOGM4ZDsgZm9udC1zaXplOiAwLjlyZW07IH0KPC9zdHlsZT4KPC9oZWFkPgo8Ym9keT4KPGgxPkNTUyBQcmFjdGljZSBQYWdlPC9oMT4KPHA+VGhpcyBwYWdlIHVzZXMgPHNwYW4gY2xhc3M9ImhpZ2hsaWdodCI+aW50ZXJuYWwgQ1NTPC9zcGFuPiBmb3Igc3R5bGluZy48L3A+CjxkaXYgY2xhc3M9ImJveCI+PHA+Qm94IHdpdGggcGFkZGluZywgbWFyZ2luLCBhbmQgcm91bmRlZCBjb3JuZXJzLjwvcD48L2Rpdj4KPGRpdiBjbGFzcz0iYm94Ij48cD5Bbm90aGVyIGJveCAtIHNhbWUgY2xhc3MsIHNhbWUgc3R5bGUuPC9wPjwvZGl2Pgo8cCBpZD0iZm9vdGVyIj5MZWN0dXJlIDcgUHJhY3RpY2UgLSBJbmxpbmUsIGludGVybmFsIENTUywgY29sb3JzLCBmb250cywgYm94IG1vZGVsLjwvcD4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Practice Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html lang="en"&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>CSS Introduction - Practice<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;style&gt;</span>body{font-family:sans-serif;max-width:600px;margin:2rem auto;padding:1rem}h1{color:#2c3e50;border-bottom:2px solid #3498db}.box{background:#ecf0f1;padding:15px;margin:10px 0;border-radius:6px}.highlight{color:#e74c3c;font-weight:bold}#footer{margin-top:2rem;color:#7f8c8d;font-size:.9rem}<span class="tag">&lt;/style&gt;</span>
+<span class="tag">&lt;/head&gt;</span><span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;h1&gt;</span>CSS Practice Page<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>This page uses <span class="tag">&lt;span class="highlight"&gt;</span>internal CSS<span class="tag">&lt;/span&gt;</span> for styling.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;div class="box"&gt;</span><span class="tag">&lt;p&gt;</span>Box with padding, margin, border-radius.<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div class="box"&gt;</span><span class="tag">&lt;p&gt;</span>Another box - same class, same style.<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;p id="footer"&gt;</span>Lecture 7 Practice - internal CSS, colors, fonts, box model.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="tutorial-section">
+        <h2>Lecture Summary</h2>
+        <div class="summary-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>CSS styles HTML pages: colors, fonts, layout, spacing, and positioning.</li>
+            <li>CSS rules consist of selectors and declaration blocks (property: value).</li>
+            <li>CSS can be applied inline, internally (in-page &lt;style&gt;), or externally (linked .css file).</li>
+            <li>The box model (content, padding, border, margin) controls element spacing and size.</li>
+            <li>CSS specificity determines which style is applied when rules conflict; inline &gt; ID &gt; class &gt; element.</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="lecture-nav-buttons">
+        <a href="lecture6.html" class="btn btn--secondary">&#8592; Previous Lecture</a>
+        <a href="lecture8.html" class="btn">Next Lecture &#8594;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 4: Tables, Div, Span and Layout Design in HTML | Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="navbar__brand">Web Technologies</a>
+    <button class="navbar__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#lectures">Lectures</a></li>
+    </ul>
+  </header>
+
+  <div class="lecture-layout">
+    <aside class="lecture-sidebar">
+      <div class="lecture-sidebar__title">Lectures</div>
+      <ul class="lecture-sidebar__list">
+        <li><a href="lecture1.html">1. Introduction to Web Platforms</a></li>
+        <li><a href="lecture2.html">2. Categories of Web Applications</a></li>
+        <li><a href="lecture3.html">3. HTML Basics</a></li>
+        <li><a href="lecture4.html">4. Tables, Div, Span and Layout</a></li>
+        <li><a href="lecture5.html">5. HTML5 Introduction</a></li>
+        <li><a href="lecture6.html">6. HTML Forms</a></li>
+        <li><a href="lecture7.html">7. CSS Introduction</a></li>
+        <li><a href="lecture8.html">8. CSS Selectors</a></li>
+      </ul>
+    </aside>
+    <main class="lecture-main">
+      <section id="intro" class="tutorial-section">
+        <h1>Tables, Div, Span and Layout Design in HTML</h1>
+        <span class="lecture-badge">Lecture 4 &bull; Reading time: 9 minutes</span>
+        <p class="lecture-summary">
+          HTML provides elements to structure webpage layout and organize content effectively. This lecture covers tables for data, and the <code>&lt;div&gt;</code> and <code>&lt;span&gt;</code> elements used in modern layout design.
+        </p>
+      </section>
+
+      <section id="intro-layout" class="tutorial-section">
+        <h2>Introduction to HTML Layout</h2>
+        <p>
+          HTML provides elements used to structure webpage content. To design layout and organize content, three elements are especially important:
+        </p>
+        <ul>
+          <li><strong>HTML Tables</strong> — for tabular data in rows and columns</li>
+          <li><strong>Div</strong> — a block-level container for sections</li>
+          <li><strong>Span</strong> — an inline container for styling small parts of text</li>
+        </ul>
+        <p>
+          Together, these elements help organize webpage content and create a clear layout structure.
+        </p>
+      </section>
+
+      <section id="what-are-tables" class="tutorial-section">
+        <h2>What Are HTML Tables?</h2>
+        <p>
+          HTML tables are used to display data in <strong>rows</strong> and <strong>columns</strong>. They are mainly used for <strong>tabular data</strong>, such as:
+        </p>
+        <ul>
+          <li>Price lists</li>
+          <li>Student records</li>
+          <li>Schedules</li>
+          <li>Statistics</li>
+        </ul>
+        <p>
+          In modern web design, tables should <strong>not</strong> be used for general webpage layout. Use CSS and <code>&lt;div&gt;</code> (or semantic HTML5 elements) for layout instead.
+        </p>
+      </section>
+
+      <section id="basic-table-structure" class="tutorial-section code-section">
+        <h2>Basic Table Structure</h2>
+        <p>Simple table with header and data rows. Run it to see how it looks.</p>
+        <div class="code-block-wrap" data-initial-code="PHRhYmxlPgo8dHI+Cjx0aD5IZWFkZXIgMTwvdGg+Cjx0aD5IZWFkZXIgMjwvdGg+CjwvdHI+Cgo8dHI+Cjx0ZD5EYXRhIDE8L3RkPgo8dGQ+RGF0YSAyPC90ZD4KPC90cj4KPC90YWJsZT4=">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;table&gt;</span>
+<span class="tag">&lt;tr&gt;</span>
+<span class="tag">&lt;th&gt;</span>Header 1<span class="tag">&lt;/th&gt;</span>
+<span class="tag">&lt;th&gt;</span>Header 2<span class="tag">&lt;/th&gt;</span>
+<span class="tag">&lt;/tr&gt;</span>
+
+<span class="tag">&lt;tr&gt;</span>
+<span class="tag">&lt;td&gt;</span>Data 1<span class="tag">&lt;/td&gt;</span>
+<span class="tag">&lt;td&gt;</span>Data 2<span class="tag">&lt;/td&gt;</span>
+<span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;/table&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="table-elements" class="tutorial-section">
+        <h2>HTML Table Elements</h2>
+        <p>These elements work together to build a table:</p>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>&lt;table&gt;</code></td><td>Defines a table</td></tr>
+              <tr><td><code>&lt;tr&gt;</code></td><td>Defines a row</td></tr>
+              <tr><td><code>&lt;th&gt;</code></td><td>Table header cell (bold by default)</td></tr>
+              <tr><td><code>&lt;td&gt;</code></td><td>Table data cell</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><code>&lt;table&gt;</code> wraps the whole table. Each <code>&lt;tr&gt;</code> is a row; inside it, <code>&lt;th&gt;</code> is for headers and <code>&lt;td&gt;</code> for data cells.</p>
+      </section>
+
+      <section id="table-attributes" class="tutorial-section">
+        <h2>Table Attributes</h2>
+        <p>Traditional table attributes used for formatting (styling is now often done with CSS):</p>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>border</code></td><td>Adds borders to the table</td></tr>
+              <tr><td><code>cellpadding</code></td><td>Space inside cells</td></tr>
+              <tr><td><code>cellspacing</code></td><td>Space between cells</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Example:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;table border="1" cellpadding="5" cellspacing="5"&gt;</span></code></pre>
+        <p>Note: For new projects, prefer CSS (<code>border</code>, <code>padding</code>, <code>border-collapse</code>) instead of these attributes.</p>
+      </section>
+
+      <section id="colspan-rowspan" class="tutorial-section code-section">
+        <h2>Colspan and Rowspan</h2>
+        <p><code>colspan</code> and <code>rowspan</code> merge cells. Run it to see the table.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+Q29sc3BhbiBhbmQgUm93c3BhbjwvdGl0bGU+CjwvaGVhZD4KPGJvZHk+Cjx0YWJsZSBib3JkZXI9IjEiPgo8dHI+PHRkIGNvbHNwYW49IjIiPk1lcmdlZCBDb2x1bW48L3RkPjwvdHI+Cjx0cj48dGQgcm93c3Bhbj0iMiI+TWVyZ2VkIFJvdzwvdGQ+PHRkPkE8L3RkPjwvdHI+Cjx0cj48dGQ+QjwvdGQ+PC90cj4KPC90YWJsZT4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Colspan and Rowspan<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;table border="1"&gt;</span>
+<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;td colspan="2"&gt;</span>Merged Column<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;td rowspan="2"&gt;</span>Merged Row<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td&gt;</span>A<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;td&gt;</span>B<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;/table&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="tables-for-layout" class="tutorial-section">
+        <h2>Using Tables for Layout (Deprecated)</h2>
+        <p>Older websites often used tables to structure the whole page (header, main content, footer):</p>
+        <pre class="pre-block"><code><span class="tag">&lt;table&gt;</span>
+<span class="tag">&lt;tr&gt;</span>
+<span class="tag">&lt;td&gt;</span>Header<span class="tag">&lt;/td&gt;</span>
+<span class="tag">&lt;/tr&gt;</span>
+
+<span class="tag">&lt;tr&gt;</span>
+<span class="tag">&lt;td&gt;</span>Main Content<span class="tag">&lt;/td&gt;</span>
+<span class="tag">&lt;/tr&gt;</span>
+
+<span class="tag">&lt;tr&gt;</span>
+<span class="tag">&lt;td&gt;</span>Footer<span class="tag">&lt;/td&gt;</span>
+<span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;/table&gt;</span></code></pre>
+        <div class="warning-box">
+          <strong>Warning</strong>
+          Using tables for layout is outdated and not recommended. Use <code>&lt;div&gt;</code> (or semantic elements like <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;footer&gt;</code>) with CSS for layout instead.
+        </div>
+      </section>
+
+      <section id="intro-div" class="tutorial-section">
+        <h2>Introduction to Div</h2>
+        <p>
+          The <code>&lt;div&gt;</code> element is a <strong>block-level</strong> container used to group and structure sections of a webpage. It has no default meaning; you give it meaning with <code>id</code>, <code>class</code>, and CSS.
+        </p>
+        <p><strong>Common uses:</strong></p>
+        <ul>
+          <li>Header sections</li>
+          <li>Content areas</li>
+          <li>Footers</li>
+          <li>Sidebars</li>
+        </ul>
+      </section>
+
+      <section id="div-example" class="tutorial-section code-section">
+        <h2>Div Example</h2>
+        <p>Div groups the heading and paragraph. Run it to see the result.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+RGl2IEV4YW1wbGU8L3RpdGxlPgo8L2hlYWQ+Cjxib2R5Pgo8ZGl2Pgo8aDE+V2Vic2l0ZSBUaXRsZTwvaDE+CjxwPlRoaXMgaXMgYSBwYXJhZ3JhcGggaW5zaWRlIGEgZGl2LjwvcD4KPC9kaXY+CjwvYm9keT4KPC9odG1sPg==">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Div Example<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;div&gt;</span>
+<span class="tag">&lt;h1&gt;</span>Website Title<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>This is a paragraph inside a div.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="div-layout-structure" class="tutorial-section code-section">
+        <h2>Div Layout Structure</h2>
+        <p>Three sections: header, content, footer. Run it to see the layout.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+RGl2IExheW91dDwvdGl0bGU+CjwvaGVhZD4KPGJvZHk+CjxkaXYgaWQ9ImhlYWRlciI+SGVhZGVyPC9kaXY+CjxkaXYgaWQ9ImNvbnRlbnQiPk1haW4gQ29udGVudDwvZGl2Pgo8ZGl2IGlkPSJmb290ZXIiPkZvb3RlcjwvZGl2Pgo8L2JvZHk+CjwvaHRtbD4=">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Div Layout<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;div id="header"&gt;</span>Header<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div id="content"&gt;</span>Main Content<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div id="footer"&gt;</span>Footer<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="intro-span" class="tutorial-section code-section">
+        <h2>Introduction to Span</h2>
+        <p>Span is for styling small bits of text. Run it to see it.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+U3BhbiBFeGFtcGxlPC90aXRsZT4KPC9oZWFkPgo8Ym9keT4KPHA+VGhpcyBpcyBhIDxzcGFuPmhpZ2hsaWdodGVkPC9zcGFuPiB3b3JkLjwvcD4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Span Example<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;p&gt;</span>This is a <span class="tag">&lt;span&gt;</span>highlighted<span class="tag">&lt;/span&gt;</span> word.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="div-vs-span" class="tutorial-section">
+        <h2>Div vs Span</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Div</th>
+                <th>Span</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><strong>Type</strong></td><td>Block element</td><td>Inline element</td></tr>
+              <tr><td><strong>Line break</strong></td><td>Yes (starts on new line)</td><td>No</td></tr>
+              <tr><td><strong>Usage</strong></td><td>Page sections, layout</td><td>Styling text within a line</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="layout-modern" class="tutorial-section">
+        <h2>Layout Using Div (Modern Method)</h2>
+        <p>Modern websites use nested <code>&lt;div&gt;</code> elements (and semantic elements) with CSS instead of tables:</p>
+        <pre class="pre-block"><code><span class="tag">&lt;div class="container"&gt;</span>
+
+<span class="tag">&lt;div class="left"&gt;</span>
+Left Section
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;div class="right"&gt;</span>
+Right Section
+<span class="tag">&lt;/div&gt;</span>
+
+<span class="tag">&lt;/div&gt;</span></code></pre>
+        <p>The outer <code>container</code> div wraps the layout. The inner <code>left</code> and <code>right</code> divs can be styled with CSS (e.g. flexbox or grid) to sit side by side or stack on small screens.</p>
+      </section>
+
+      <section id="best-practices" class="tutorial-section">
+        <h2>Layout Best Practices</h2>
+        <div class="info-box">
+          <strong>Best Practices</strong>
+          <ul style="margin:0.5rem 0 0 1.25rem; padding:0;">
+            <li>Use tables only for tabular data</li>
+            <li>Use div (or semantic elements) for webpage layout</li>
+            <li>Use span for styling small parts of text</li>
+            <li>Avoid tables for layout design</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="practice" class="tutorial-section code-section">
+        <h2>End-of-Lecture Practice</h2>
+        <p>Practice page for Lecture 4. Try it Yourself to run and experiment.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPHRpdGxlPlRhYmxlcywgRGl2LCBTcGFuIC0gUHJhY3RpY2U8L3RpdGxlPgo8L2hlYWQ+Cjxib2R5Pgo8ZGl2IGlkPSJoZWFkZXIiPjxoMT5MYXlvdXQgUHJhY3RpY2U8L2gxPjwvZGl2Pgo8ZGl2IGlkPSJjb250ZW50Ij4KPGgyPkRhdGEgVGFibGU8L2gyPgo8dGFibGUgYm9yZGVyPSIxIj4KPHRyPjx0aD5Ub3BpYzwvdGg+PHRoPkVsZW1lbnQ8L3RoPjwvdHI+Cjx0cj48dGQ+RGF0YTwvdGQ+PHRkPnRhYmxlLCB0ciwgdGQ8L3RkPjwvdHI+Cjx0cj48dGQ+TGF5b3V0PC90ZD48dGQ+ZGl2PC90ZD48L3RyPgo8dHI+PHRkPklubGluZTwvdGQ+PHRkPjxzcGFuIHN0eWxlPSJiYWNrZ3JvdW5kOiNlZWUiPnNwYW48L3NwYW4+PC90ZD48L3RyPgo8L3RhYmxlPgo8aDI+RGl2IFN0cnVjdHVyZTwvaDI+CjxkaXYgY2xhc3M9ImJveCI+PHA+TGVmdCBzZWN0aW9uIHVzaW5nIGRpdjwvcD48L2Rpdj4KPGRpdiBjbGFzcz0iYm94Ij48cD5SaWdodCBzZWN0aW9uIHVzaW5nIGRpdjwvcD48L2Rpdj4KPC9kaXY+CjxkaXYgaWQ9ImZvb3RlciI+PHA+TGVjdHVyZSA0IFByYWN0aWNlIC0gVGFibGVzLCBEaXYsIFNwYW48L3A+PC9kaXY+CjwvYm9keT4KPC9odG1sPg==">
+          <div class="code-block-header">Practice Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html lang="en"&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Tables, Div, Span - Practice<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;div id="header"&gt;</span><span class="tag">&lt;h1&gt;</span>Layout Practice<span class="tag">&lt;/h1&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div id="content"&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Data Table<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;table border="1"&gt;</span>
+<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;th&gt;</span>Topic<span class="tag">&lt;/th&gt;</span><span class="tag">&lt;th&gt;</span>Element<span class="tag">&lt;/th&gt;</span><span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;td&gt;</span>Data<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td&gt;</span>table, tr, td<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;td&gt;</span>Layout<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td&gt;</span>div<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;tr&gt;</span><span class="tag">&lt;td&gt;</span>Inline<span class="tag">&lt;/td&gt;</span><span class="tag">&lt;td&gt;</span><span class="tag">&lt;span style="background:#eee"&gt;</span>span<span class="tag">&lt;/span&gt;</span><span class="tag">&lt;/td&gt;</span><span class="tag">&lt;/tr&gt;</span>
+<span class="tag">&lt;/table&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Div Structure<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;div class="box"&gt;</span><span class="tag">&lt;p&gt;</span>Left section using div<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div class="box"&gt;</span><span class="tag">&lt;p&gt;</span>Right section using div<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;div id="footer"&gt;</span><span class="tag">&lt;p&gt;</span>Lecture 4 Practice<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/div&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="tutorial-section">
+        <h2>Lecture Summary</h2>
+        <div class="summary-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>Tables display tabular data in rows and columns.</li>
+            <li>Div structures webpage sections and is the standard for layout.</li>
+            <li>Span styles inline text without breaking the line.</li>
+            <li>Modern layouts use div (and semantic HTML) instead of tables.</li>
+            <li>Proper structure improves maintainability and accessibility.</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="lecture-nav-buttons">
+        <a href="lecture3.html" class="btn btn--secondary">&#8592; Previous Lecture</a>
+        <a href="lecture5.html" class="btn">Next Lecture &#8594;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

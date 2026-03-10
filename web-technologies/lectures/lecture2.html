@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 2: Categories of Web Applications and Web Architectures | Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="navbar__brand">Web Technologies</a>
+    <button class="navbar__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#lectures">Lectures</a></li>
+    </ul>
+  </header>
+
+  <div class="lecture-layout">
+    <aside class="lecture-sidebar">
+      <div class="lecture-sidebar__title">Lectures</div>
+      <ul class="lecture-sidebar__list">
+        <li><a href="lecture1.html">1. Introduction to Web Platforms</a></li>
+        <li><a href="lecture2.html">2. Categories of Web Applications</a></li>
+        <li><a href="lecture3.html">3. HTML Basics</a></li>
+        <li><a href="lecture4.html">4. Tables, Div, Span and Layout</a></li>
+        <li><a href="lecture5.html">5. HTML5 Introduction</a></li>
+        <li><a href="lecture6.html">6. HTML Forms</a></li>
+        <li><a href="lecture7.html">7. CSS Introduction</a></li>
+        <li><a href="lecture8.html">8. CSS Selectors</a></li>
+      </ul>
+    </aside>
+    <main class="lecture-main">
+      <section id="intro" class="tutorial-section">
+        <h1>Categories of Web Applications and Web Architectures</h1>
+        <span class="lecture-badge">Lecture 2 &bull; Reading time: 10 minutes</span>
+        <p class="lecture-summary">
+          Web applications use different structures and architectures to work efficiently and scale. This lecture covers how we categorize web applications by purpose and structure, and how architectural patterns organize system components for maintainability and growth.
+        </p>
+      </section>
+
+      <section id="introduction" class="tutorial-section">
+        <h2>Introduction</h2>
+        <p>
+          Web applications are software programs that run in the browser and interact with servers. Depending on their purpose—document editing, social interaction, or data discovery—they are built with different architectures. Choosing the right category and architecture helps applications perform well and scale.
+        </p>
+        <div class="info-box">
+          <strong>Why it matters:</strong> Different architectures suit different needs. Document-centric apps prioritize collaboration; social apps prioritize real-time interaction; semantic apps prioritize structured data. Understanding these categories helps you design and build the right solution.
+        </div>
+      </section>
+
+      <section id="categories" class="tutorial-section">
+        <h2>Categories of Web Applications</h2>
+        <p>Web applications can be categorized based on their purpose and structure. The three main categories are:</p>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card tutorial-card--large">
+            <h3 class="tutorial-card__title">Document-Centric Web</h3>
+            <p class="tutorial-card__desc">Applications focused on delivering and editing documents and information. Users create, share, and collaborate on content.</p>
+            <p class="tutorial-card__desc" style="margin-top:0.5rem;"><strong>Examples:</strong> Google Docs, Microsoft Office Online, Dropbox Paper</p>
+          </div>
+          <div class="tutorial-card tutorial-card--large">
+            <h3 class="tutorial-card__title">Social Web Applications</h3>
+            <p class="tutorial-card__desc">Platforms that enable user interaction, content sharing, and community building.</p>
+            <p class="tutorial-card__desc" style="margin-top:0.5rem;"><strong>Examples:</strong> Facebook, Twitter, Instagram, LinkedIn</p>
+          </div>
+          <div class="tutorial-card tutorial-card--large">
+            <h3 class="tutorial-card__title">Semantic Web Applications</h3>
+            <p class="tutorial-card__desc">Applications that use structured, machine-readable data for enhanced search and data integration.</p>
+            <p class="tutorial-card__desc" style="margin-top:0.5rem;"><strong>Examples:</strong> Wolfram Alpha, Google Knowledge Graph, Schema.org</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="document-centric" class="tutorial-section">
+        <h2>Document-Centric Web Applications</h2>
+        <p>
+          Document-centric applications focus on delivering documents and information. They emphasize creation, editing, sharing, and versioning of content rather than social interaction.
+        </p>
+        <p><strong>Examples:</strong> Google Docs, Microsoft Office Online, Dropbox Paper</p>
+        <div class="feature-list-card">
+          <h3>Key features</h3>
+          <ul>
+            <li>Real-time collaboration</li>
+            <li>Version control</li>
+            <li>Document sharing</li>
+            <li>Editing tools</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="social-web" class="tutorial-section">
+        <h2>Social Web Applications</h2>
+        <p>
+          Social web applications enable user interaction and content sharing. They center on profiles, feeds, and communication between users.
+        </p>
+        <p><strong>Examples:</strong> Facebook, Twitter, Instagram, LinkedIn</p>
+        <div class="feature-list-card">
+          <h3>Key features</h3>
+          <ul>
+            <li>User profiles</li>
+            <li>News feeds</li>
+            <li>Likes and comments</li>
+            <li>Notifications</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="semantic-web" class="tutorial-section">
+        <h2>Semantic Web Applications</h2>
+        <p>
+          Semantic web applications use structured data and machine-readable information. They improve search, data integration, and context-aware retrieval by linking and organizing data in meaningful ways.
+        </p>
+        <p><strong>Examples:</strong> Wolfram Alpha, Google Knowledge Graph, Schema.org</p>
+        <div class="feature-list-card">
+          <h3>Key features</h3>
+          <ul>
+            <li>Enhanced search capabilities</li>
+            <li>Data integration</li>
+            <li>Context-aware information retrieval</li>
+            <li>Improved data relationships</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="comparison-apps" class="tutorial-section">
+        <h2>Comparison of Web Application Types</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Aspect</th>
+                <th>Document-Centric Web</th>
+                <th>Social Web</th>
+                <th>Semantic Web</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Definition</strong></td>
+                <td>Focus on documents and information</td>
+                <td>Focus on user interaction and sharing</td>
+                <td>Focus on structured, machine-readable data</td>
+              </tr>
+              <tr>
+                <td><strong>Key Features</strong></td>
+                <td>Collaboration, version control, sharing</td>
+                <td>Profiles, feeds, likes, notifications</td>
+                <td>Structured data, search, integration</td>
+              </tr>
+              <tr>
+                <td><strong>Pros</strong></td>
+                <td>Clear workflow, collaboration</td>
+                <td>Engagement, community</td>
+                <td>Better search, data reuse</td>
+              </tr>
+              <tr>
+                <td><strong>Cons</strong></td>
+                <td>Can be complex for real-time sync</td>
+                <td>Privacy, moderation challenges</td>
+                <td>Requires structured data design</td>
+              </tr>
+              <tr>
+                <td><strong>Use Cases</strong></td>
+                <td>Office suites, wikis, content management</td>
+                <td>Social networks, forums, messaging</td>
+                <td>Knowledge bases, search, APIs</td>
+              </tr>
+              <tr>
+                <td><strong>Examples</strong></td>
+                <td>Google Docs, Office Online, Dropbox Paper</td>
+                <td>Facebook, Twitter, Instagram, LinkedIn</td>
+                <td>Wolfram Alpha, Knowledge Graph, Schema.org</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="interoperability" class="tutorial-section">
+        <h2>Interoperability</h2>
+        <div class="definition-box">
+          <strong>Definition</strong>
+          <p>Interoperability is the ability of different systems or applications to work together and exchange data effectively. In web applications, it allows services from different providers to communicate using common standards and protocols.</p>
+        </div>
+      </section>
+
+      <section id="architectures-intro" class="tutorial-section">
+        <h2>Introduction to Web Architectures</h2>
+        <p>
+          Web architectures define how system components interact with each other. They determine where logic runs, how data flows, and how the system can scale. Common patterns include:
+        </p>
+        <ul>
+          <li><strong>Layered Architecture</strong> — Organizes code into horizontal layers (e.g. presentation, business logic, data).</li>
+          <li><strong>One-Tier Architecture</strong> — All components in a single system (e.g. desktop app).</li>
+          <li><strong>Two-Tier Architecture</strong> — Client and server (e.g. classic client-server).</li>
+          <li><strong>Three-Tier Architecture</strong> — Presentation, application, and data tiers.</li>
+          <li><strong>N-Layered Architecture</strong> — Multiple layers for flexibility and modularity.</li>
+        </ul>
+      </section>
+
+      <section id="layered" class="tutorial-section">
+        <h2>Layered Architecture</h2>
+        <p>
+          In layered architecture, the system is divided into horizontal layers. Each layer has a distinct responsibility and communicates with adjacent layers.
+        </p>
+        <div class="layer-diagram">
+          <div class="layer-diagram__layer">Presentation Layer</div>
+          <div class="layer-diagram__layer">Business Logic Layer</div>
+          <div class="layer-diagram__layer">Data Layer</div>
+        </div>
+        <p><strong>Benefits:</strong></p>
+        <ul>
+          <li>Separation of concerns</li>
+          <li>Modularity</li>
+          <li>Scalability</li>
+        </ul>
+      </section>
+
+      <section id="one-tier" class="tutorial-section">
+        <h2>One-Tier Architecture</h2>
+        <p>
+          In one-tier architecture, all components exist in a single system. The application, data, and user interface run on one machine with no separate client or server.
+        </p>
+        <p><strong>Example:</strong> Desktop applications like Microsoft Excel, where the program and data reside on the same computer.</p>
+      </section>
+
+      <section id="two-tier" class="tutorial-section">
+        <h2>Two-Tier Architecture</h2>
+        <p>
+          Two-tier (client-server) architecture splits the system into two parts: the client handles the user interface and user input, while the server handles the database and business logic.
+        </p>
+        <p><strong>Example:</strong> Simple client-server database applications where a desktop or web client talks directly to a database server.</p>
+      </section>
+
+      <section id="three-tier" class="tutorial-section">
+        <h2>Three-Tier Architecture</h2>
+        <p>
+          Three-tier architecture separates the system into three tiers: Presentation (UI), Application (business logic), and Data (database). This is common in modern web applications.
+        </p>
+        <div class="tier-diagram">
+          <div class="tier-diagram__tier">Presentation Tier</div>
+          <div class="tier-diagram__tier">Application Tier</div>
+          <div class="tier-diagram__tier">Data Tier</div>
+        </div>
+        <p><strong>Benefits:</strong></p>
+        <ul>
+          <li>Scalability</li>
+          <li>Easier maintenance</li>
+          <li>Separation of concerns</li>
+        </ul>
+      </section>
+
+      <section id="n-layered" class="tutorial-section">
+        <h2>N-Layered Architecture</h2>
+        <p>
+          N-layered architecture extends the layered model by adding more layers. Each layer has a clear responsibility, and dependencies flow in one direction (e.g. presentation → application → domain → data access).
+        </p>
+        <p><strong>Examples of layers:</strong> Presentation, Application, Domain, Data Access</p>
+        <p><strong>Benefits:</strong></p>
+        <ul>
+          <li>Flexibility</li>
+          <li>Modular architecture</li>
+          <li>High scalability</li>
+        </ul>
+      </section>
+
+      <section id="comparison-arch" class="tutorial-section">
+        <h2>Architecture Comparison Table</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Architecture</th>
+                <th>Definition</th>
+                <th>Key Features</th>
+                <th>Pros</th>
+                <th>Cons</th>
+                <th>Use Cases</th>
+                <th>Examples</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Layered</td>
+                <td>Horizontal layers (presentation, logic, data)</td>
+                <td>Clear separation, modularity</td>
+                <td>Maintainable, testable</td>
+                <td>Can add overhead</td>
+                <td>Enterprise apps</td>
+                <td>Many web applications</td>
+              </tr>
+              <tr>
+                <td>One-Tier</td>
+                <td>All in one system</td>
+                <td>Simple, no network</td>
+                <td>Simple deployment</td>
+                <td>No sharing, limited scale</td>
+                <td>Desktop apps</td>
+                <td>Microsoft Excel</td>
+              </tr>
+              <tr>
+                <td>Two-Tier</td>
+                <td>Client and server</td>
+                <td>Direct client-server</td>
+                <td>Simple, direct</td>
+                <td>Server can become bottleneck</td>
+                <td>Small-scale apps</td>
+                <td>Client-server database apps</td>
+              </tr>
+              <tr>
+                <td>Three-Tier</td>
+                <td>Presentation, application, data</td>
+                <td>Scalable tiers</td>
+                <td>Scalable, maintainable</td>
+                <td>More components to manage</td>
+                <td>Web apps, services</td>
+                <td>Amazon, enterprise systems</td>
+              </tr>
+              <tr>
+                <td>N-Layered</td>
+                <td>Multiple layers</td>
+                <td>Flexible, modular</td>
+                <td>High flexibility, scalability</td>
+                <td>Complexity</td>
+                <td>Large enterprise systems</td>
+                <td>ERP systems, banking</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="real-world" class="tutorial-section">
+        <h2>Real World Examples</h2>
+        <p>Different architectures in practice:</p>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Amazon</h3>
+            <p class="tutorial-card__desc">Large-scale e-commerce and cloud platform using multi-tier and distributed architecture.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Enterprise banking systems</h3>
+            <p class="tutorial-card__desc">N-layered and three-tier architectures for security, compliance, and scalability.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Client-server database apps</h3>
+            <p class="tutorial-card__desc">Two-tier architecture with a client UI and a database server.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">ERP systems</h3>
+            <p class="tutorial-card__desc">N-layered architecture for integration of business processes and data.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="code-example" class="tutorial-section code-section">
+        <h2>Code Example</h2>
+        <p>Shows the client–server idea in a simple page. Run it to see the result.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+XG48aHRtbD5cbjxoZWFkPlxuPHRpdGxlPkNsaWVudCBTZXJ2ZXIgRXhhbXBsZTwvdGl0bGU+XG48L2hlYWQ+XG5cbjxib2R5PlxuXG48aDE+Q2xpZW50IFJlcXVlc3Q8L2gxPlxuPHA+VGhlIGJyb3dzZXIgc2VuZHMgYSByZXF1ZXN0IHRvIHRoZSBzZXJ2ZXIuPC9wPlxuXG48L2JvZHk+XG48L2h0bWw+">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;title&gt;</span>Client Server Example<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+
+<span class="tag">&lt;body&gt;</span>
+
+<span class="tag">&lt;h1&gt;</span>Client Request<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>The browser sends a request to the server.<span class="tag">&lt;/p&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="practice" class="tutorial-section code-section">
+        <h2>End-of-Lecture Practice</h2>
+        <p>Practice page for Lecture 2. Try it Yourself to run and experiment.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPHRpdGxlPldlYiBBcHAgQ2F0ZWdvcmllcyAtIFByYWN0aWNlPC90aXRsZT4KPC9oZWFkPgo8Ym9keT4KPGgxPkNhdGVnb3JpZXMgb2YgV2ViIEFwcGxpY2F0aW9uczwvaDE+CjxwPlRoaXMgcHJhY3RpY2UgcGFnZSBzaG93cyB0aGUgZG9jdW1lbnQtY2VudHJpYyBtb2RlbCBmcm9tIExlY3R1cmUgMi48L3A+CjxoMj5Eb2N1bWVudC1DZW50cmljPC9oMj4KPHA+Q29udGVudC1mb2N1c2VkIGFwcHM6IGFydGljbGVzLCB3aWtpcywgYW5kIGNvbGxhYm9yYXRpdmUgZG9jdW1lbnRzLjwvcD4KPGgyPkFyY2hpdGVjdHVyZSBMYXllcnM8L2gyPgo8b2w+CjxsaT5QcmVzZW50YXRpb24gKHdoYXQgdXNlcnMgc2VlKTwvbGk+CjxsaT5CdXNpbmVzcyBsb2dpYyAoaG93IGl0IHdvcmtzKTwvbGk+CjxsaT5EYXRhIGxheWVyICh3aGVyZSBpbmZvIGlzIHN0b3JlZCk8L2xpPgo8L29sPgo8cD5UaGlzIEhUTUwgZG9jdW1lbnQgaXMgZGVsaXZlcmVkIGZyb20gYSBzZXJ2ZXIgdG8geW91ciBicm93c2Vy4oCUZGVtb25zdHJhdGluZyB0aGUgcmVxdWVzdC1yZXNwb25zZSBjeWNsZS48L3A+CjwvYm9keT4KPC9odG1sPg==">
+          <div class="code-block-header">Practice Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html lang="en"&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Web App Categories - Practice<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;h1&gt;</span>Categories of Web Applications<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>This practice shows the document-centric model from Lecture 2.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Document-Centric<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;p&gt;</span>Content-focused apps: articles, wikis, collaborative documents.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Architecture Layers<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;ol&gt;</span><span class="tag">&lt;li&gt;</span>Presentation<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;li&gt;</span>Business logic<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;li&gt;</span>Data layer<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;/ol&gt;</span>
+<span class="tag">&lt;p&gt;</span>This HTML is delivered from server to browser—demonstrating the request-response cycle.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="tutorial-section">
+        <h2>Lecture Summary</h2>
+        <div class="summary-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>Web applications can be categorized into document-centric, social web, and semantic web.</li>
+            <li>Different architectures organize how systems are built (layered, one-tier, two-tier, three-tier, N-layered).</li>
+            <li>Layered architectures improve scalability and modularity.</li>
+            <li>Multi-tier architectures are common in modern web applications.</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="lecture-nav-buttons">
+        <a href="lecture1.html" class="btn btn--secondary">&#8592; Previous Lecture</a>
+        <a href="lecture3.html" class="btn">Next Lecture &#8594;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

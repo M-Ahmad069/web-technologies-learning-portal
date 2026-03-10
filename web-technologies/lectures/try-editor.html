@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Try it Yourself - Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #04aa6d;
+      --primary-dark: #039861;
+      --dark-bg: #1e1e1e;
+      --dark-border: #333;
+      --toolbar-bg: #282a35;
+      --text: #f8f8f2;
+      --text-muted: #abb2bf;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', sans-serif; font-size: 14px; color: #1a1a1a; background: #f5f5f5; }
+    .editor-page { display: flex; flex-direction: column; height: 100vh; }
+    .editor-toolbar {
+      display: flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem;
+      background: var(--toolbar-bg); color: #fff; flex-shrink: 0;
+    }
+    .editor-toolbar .title { font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif; margin-right: 1rem; }
+    .editor-toolbar .btn {
+      padding: 0.5rem 1rem; border: none; border-radius: 6px; font-weight: 600; cursor: pointer;
+      font-size: 0.9rem; transition: background 0.2s, transform 0.1s;
+    }
+    .editor-toolbar .btn:active { transform: scale(0.98); }
+    .back-to-lecture {
+      color: #fff; text-decoration: none; font-size: 0.9rem; margin-right: auto;
+      padding: 0.4rem 0.75rem; border-radius: 6px; transition: background 0.2s;
+    }
+    .back-to-lecture:hover { background: rgba(255,255,255,0.15); color: #fff; }
+    .btn-run { background: var(--primary); color: #fff; }
+    .btn-run:hover { background: var(--primary-dark); }
+    .btn-reset { background: #555; color: #fff; }
+    .btn-reset:hover { background: #666; }
+    .editor-split { display: flex; flex: 1; min-height: 0; }
+    .editor-pane {
+      flex: 1; display: flex; flex-direction: column; min-width: 0; border-right: 1px solid var(--dark-border);
+    }
+    .editor-pane:last-child { border-right: none; }
+    .pane-label {
+      padding: 0.4rem 1rem; font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em;
+      background: #2d2d2d; color: var(--text-muted); border-bottom: 1px solid var(--dark-border);
+    }
+    .preview-pane .pane-label { background: #374151; color: #e5e7eb; }
+    .code-tabs {
+      display: flex; background: #252526; border-bottom: 1px solid var(--dark-border);
+    }
+    .code-tab {
+      padding: 0.5rem 1rem; font-size: 0.8rem; font-weight: 600; cursor: pointer; color: var(--text-muted);
+      border: none; background: none; font-family: inherit;
+    }
+    .code-tab:hover { color: #fff; }
+    .code-tab.active { color: #fff; background: var(--dark-bg); }
+    .code-panel { display: none; flex: 1; flex-direction: column; min-height: 0; }
+    .code-panel.active { display: flex; }
+    .editor-wrap { flex: 1; display: flex; min-height: 0; overflow: hidden; }
+    .editor-textarea {
+      flex: 1; width: 100%; min-height: 120px; padding: 1rem; margin: 0; resize: none; border: none;
+      background: var(--dark-bg); color: var(--text); font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+      font-size: 14px; line-height: 1.5; outline: none; tab-size: 4;
+    }
+    .preview-frame-wrap { flex: 1; min-height: 0; background: #fff; }
+    .preview-frame {
+      width: 100%; height: 100%; min-height: 200px; border: none; display: block; background: #fff;
+    }
+    @media (max-width: 768px) {
+      .editor-split { flex-direction: column; }
+      .editor-pane { border-right: none; border-bottom: 1px solid var(--dark-border); }
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-page">
+    <div class="editor-toolbar">
+      <a href="#" id="back-link" class="back-to-lecture" style="display:none;">&larr; Back to Lecture</a>
+      <span class="title">Try it Yourself</span>
+      <button type="button" class="btn btn-run" id="run-btn">Run &raquo;</button>
+      <button type="button" class="btn btn-reset" id="reset-btn">Reset Code</button>
+    </div>
+    <div class="editor-split">
+      <div class="editor-pane">
+        <div class="pane-label">Code</div>
+        <div class="code-tabs">
+          <button type="button" class="code-tab active" data-tab="html">HTML</button>
+          <button type="button" class="code-tab" data-tab="css">CSS</button>
+        </div>
+        <div class="code-panel active" id="panel-html">
+          <div class="editor-wrap">
+            <textarea class="editor-textarea" id="code-html" spellcheck="false" placeholder="Enter HTML..."></textarea>
+          </div>
+        </div>
+        <div class="code-panel" id="panel-css">
+          <div class="editor-wrap">
+            <textarea class="editor-textarea" id="code-css" spellcheck="false" placeholder="Enter CSS..."></textarea>
+          </div>
+        </div>
+      </div>
+      <div class="editor-pane preview-pane">
+        <div class="pane-label">Live Preview</div>
+        <div class="preview-frame-wrap">
+          <iframe class="preview-frame" id="preview-frame" title="Live preview"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    (function () {
+      var DEFAULT_HTML = '<!DOCTYPE html>\n<html>\n<head>\n<meta charset="utf-8">\n<title>My Web Page<\/title>\n<\/head>\n<body>\n<h1>Welcome to Web Technologies<\/h1>\n<p>This is a simple HTML page.<\/p>\n<\/body>\n<\/html>';
+      var DEFAULT_CSS = 'body { font-family: sans-serif; margin: 2rem; }\nh1 { color: #04aa6d; }\np { color: #333; }';
+      var htmlEditor = document.getElementById('code-html');
+      var cssEditor = document.getElementById('code-css');
+      var preview = document.getElementById('preview-frame');
+      var runBtn = document.getElementById('run-btn');
+      var resetBtn = document.getElementById('reset-btn');
+      var backLink = document.getElementById('back-link');
+
+      function getQueryParam(name) {
+        var params = new URLSearchParams(window.location.search);
+        return params.get(name);
+      }
+
+      function getInitialCode() {
+        var codeParam = getQueryParam('code');
+        if (codeParam) {
+          try {
+            // base64 + becomes space in url, need to fix before decoding
+            var b64 = codeParam.replace(/ /g, '+');
+            var decoded = atob(b64);
+            try {
+              return decodeURIComponent(escape(decoded));
+            } catch (e) {
+              return decoded;
+            }
+          } catch (e) {}
+        }
+        try {
+          var stored = sessionStorage.getItem('tryEditorCode');
+          if (stored) return stored;
+        } catch (e) {}
+        return null;
+      }
+
+      function wrapFragment(html) {
+        if (!html || !html.trim()) return '';
+        var t = html.trim();
+        if (t.indexOf('<!DOCTYPE') === 0 || t.indexOf('<html') === 0) return html;
+        return '<!DOCTYPE html><html><head><meta charset="utf-8"><\/head><body>\n' + html + '\n<\/body><\/html>';
+      }
+
+      function buildFullDocument() {
+        var html = htmlEditor.value || '';
+        var css = (cssEditor.value || '').trim();
+        html = wrapFragment(html) || '<!DOCTYPE html><html><head><meta charset="utf-8"><\/head><body><p>Enter HTML and click Run.<\/p><\/body><\/html>';
+        if (css) {
+          var inject = '<style>\n' + css + '\n<\/style>';
+          if (html.indexOf('<\/head>') !== -1) {
+            html = html.replace('<\/head>', inject + '\n<\/head>');
+          } else if (html.indexOf('<body') !== -1) {
+            html = html.replace('<body', '<head><\/head><body');
+            html = html.replace('<\/head>', inject + '\n<\/head>');
+          } else {
+            html = html.replace('<body>', '<head>' + inject + '<\/head><body>');
+          }
+        }
+        return html;
+      }
+
+      var lastBlobUrl = null;
+      function runCode() {
+        var doc = buildFullDocument();
+        if (lastBlobUrl) {
+          try { URL.revokeObjectURL(lastBlobUrl); } catch (e) {}
+          lastBlobUrl = null;
+        }
+        try {
+          var dataUri = 'data:text/html;charset=utf-8,' + encodeURIComponent(doc);
+          if (dataUri.length < 2000000) {
+            preview.src = dataUri;
+            return;
+          }
+        } catch (e) {}
+        try {
+          var blob = new Blob([doc], { type: 'text/html;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          lastBlobUrl = url;
+          preview.src = url;
+        } catch (e) {
+          try {
+            preview.srcdoc = doc;
+          } catch (e2) {
+            var iframeDoc = preview.contentDocument || (preview.contentWindow && preview.contentWindow.document);
+            if (iframeDoc) {
+              iframeDoc.open();
+              iframeDoc.write(doc);
+              iframeDoc.close();
+            }
+          }
+        }
+      }
+
+      function resetCode() {
+        htmlEditor.value = DEFAULT_HTML;
+        cssEditor.value = DEFAULT_CSS;
+        runCode();
+      }
+
+      var initial = getInitialCode();
+      if (initial) {
+        htmlEditor.value = initial;
+        cssEditor.value = DEFAULT_CSS;
+      } else {
+        htmlEditor.value = DEFAULT_HTML;
+        cssEditor.value = DEFAULT_CSS;
+      }
+
+      function runWhenReady() {
+        runCode();
+      }
+      function scheduleRun() {
+        setTimeout(runWhenReady, 50);
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', scheduleRun);
+      } else {
+        scheduleRun();
+      }
+      window.addEventListener('load', runWhenReady);
+
+      var returnPage = getQueryParam('return');
+      if (returnPage) {
+        backLink.href = returnPage;
+        backLink.style.display = 'inline-block';
+      }
+
+      runBtn.addEventListener('click', function () { runCode(); });
+      resetBtn.addEventListener('click', resetCode);
+
+      document.querySelectorAll('.code-tab').forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          var t = this.getAttribute('data-tab');
+          document.querySelectorAll('.code-tab').forEach(function (x) { x.classList.remove('active'); });
+          document.querySelectorAll('.code-panel').forEach(function (x) { x.classList.remove('active'); });
+          this.classList.add('active');
+          document.getElementById('panel-' + t).classList.add('active');
+        });
+      });
+
+      function handleTab(ta) {
+        var start = ta.selectionStart, end = ta.selectionEnd, val = ta.value;
+        ta.value = val.slice(0, start) + '\t' + val.slice(end);
+        ta.selectionStart = ta.selectionEnd = start + 1;
+      }
+      htmlEditor.addEventListener('keydown', function (e) { if (e.key === 'Tab') { e.preventDefault(); handleTab(htmlEditor); } });
+      cssEditor.addEventListener('keydown', function (e) { if (e.key === 'Tab') { e.preventDefault(); handleTab(cssEditor); } });
+    })();
+  </script>
+</body>
+</html>

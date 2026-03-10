@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 6: HTML Forms | Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="navbar__brand">Web Technologies</a>
+    <button class="navbar__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#lectures">Lectures</a></li>
+    </ul>
+  </header>
+
+  <div class="lecture-layout">
+    <aside class="lecture-sidebar">
+      <div class="lecture-sidebar__title">Lectures</div>
+      <ul class="lecture-sidebar__list">
+        <li><a href="lecture1.html">1. Introduction to Web Platforms</a></li>
+        <li><a href="lecture2.html">2. Categories of Web Applications</a></li>
+        <li><a href="lecture3.html">3. HTML Basics</a></li>
+        <li><a href="lecture4.html">4. Tables, Div, Span and Layout</a></li>
+        <li><a href="lecture5.html">5. HTML5 Introduction</a></li>
+        <li><a href="lecture6.html">6. HTML Forms</a></li>
+        <li><a href="lecture7.html">7. CSS Introduction</a></li>
+        <li><a href="lecture8.html">8. CSS Selectors</a></li>
+      </ul>
+    </aside>
+    <main class="lecture-main">
+      <section id="intro" class="tutorial-section">
+        <h1>HTML Forms</h1>
+        <span class="lecture-badge">Lecture 6 &bull; Reading time: 10 minutes</span>
+        <p class="lecture-summary">
+          HTML forms are used to collect user input and send data to a server. This lecture covers the form element, inputs, labels, validation attributes, and how form submission works.
+        </p>
+      </section>
+
+      <section id="introduction" class="tutorial-section">
+        <h2>Introduction to HTML Forms</h2>
+        <p>
+          Forms are used to <strong>collect information from users</strong>. The data is usually sent to a server for processing (e.g. saving to a database or sending an email).
+        </p>
+        <p><strong>Common examples include:</strong></p>
+        <ul>
+          <li>Login forms</li>
+          <li>Registration forms</li>
+          <li>Feedback forms</li>
+          <li>Search forms</li>
+        </ul>
+        <p>Form data is typically submitted to a server-side script or API that handles validation, storage, and response.</p>
+      </section>
+
+      <section id="form-element" class="tutorial-section">
+        <h2>The Form Element</h2>
+        <p>
+          The <code>&lt;form&gt;</code> element acts as a <strong>container</strong> for form controls (inputs, buttons, etc.). It defines where the data goes and how it is sent.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;form action="/submit" method="post"&gt;</span>
+<span class="comment">&lt;!-- form elements --&gt;</span>
+<span class="tag">&lt;/form&gt;</span></code></pre>
+        <p><strong>Key attributes:</strong></p>
+        <ul>
+          <li><code>action</code> — the URL where form data is sent</li>
+          <li><code>method</code> — the HTTP method used (<strong>GET</strong> or <strong>POST</strong>)</li>
+        </ul>
+      </section>
+
+      <section id="form-attributes" class="tutorial-section">
+        <h2>Form Attributes</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>action</code></td><td>URL where form data is sent</td></tr>
+              <tr><td><code>method</code></td><td>GET or POST — how data is sent</td></tr>
+              <tr><td><code>target</code></td><td>Where the response is displayed (e.g. same window, new tab, iframe)</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>GET vs POST:</strong> <strong>GET</strong> appends data to the URL (visible in the address bar; good for searches). <strong>POST</strong> sends data in the request body (not in the URL; better for passwords and larger or sensitive data).</p>
+      </section>
+
+      <section id="basic-structure" class="tutorial-section code-section">
+        <h2>Basic Form Structure</h2>
+        <p><strong>Code explanation:</strong> This example shows a complete page with a simple form: a label and a text input. The <code>for</code> attribute on <code>&lt;label&gt;</code> matches the input’s <code>id</code>, so clicking the label focuses the field. Run the code to see the form in the browser.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+Rm9ybSBFeGFtcGxlPC90aXRsZT4KPC9oZWFkPgo8Ym9keT4KPGZvcm0gYWN0aW9uPSIvc3VibWl0IiBtZXRob2Q9InBvc3QiPgo8bGFiZWwgZm9yPSJuYW1lIj5OYW1lOjwvbGFiZWw+CjxpbnB1dCB0eXBlPSJ0ZXh0IiBpZD0ibmFtZSIgbmFtZT0ibmFtZSI+CjwvZm9ybT4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;title&gt;</span>Form Example<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;form action="/submit" method="post"&gt;</span>
+<span class="tag">&lt;label for="name"&gt;</span>Name:<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input type="text" id="name" name="name"&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+        <div class="info-box">
+          <strong>Form example preview</strong>
+          <form action="#" method="get" style="margin-top:0.75rem; max-width:20rem;">
+            <label for="demo-name">Name:</label>
+            <input type="text" id="demo-name" name="name" style="display:block; margin:0.25rem 0 0.75rem; padding:0.4rem; width:100%; border:1px solid var(--color-border); border-radius:4px;">
+          </form>
+        </div>
+      </section>
+
+      <section id="label-element" class="tutorial-section">
+        <h2>The Label Element</h2>
+        <p>
+          The <code>&lt;label&gt;</code> element <strong>associates text with a form input</strong>. Use the <code>for</code> attribute set to the input’s <code>id</code> so that clicking the label focuses the input.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;label for="email"&gt;</span>Email:<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input type="email" id="email" name="email"&gt;</span></code></pre>
+        <p>When the user clicks the label text (“Email:”), the browser focuses the associated input field. This is especially helpful on small screens and for accessibility.</p>
+      </section>
+
+      <section id="input-element" class="tutorial-section">
+        <h2>The Input Element</h2>
+        <p>
+          The <code>&lt;input&gt;</code> element is the most common form control. It supports many <strong>input types</strong> (text, password, email, number, etc.) and can be styled and validated with attributes.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;input type="text" name="username"&gt;</span></code></pre>
+        <p>The <code>type</code> determines how the input looks and behaves; <code>name</code> identifies the field when the form is submitted.</p>
+      </section>
+
+      <section id="common-input-types" class="tutorial-section code-section">
+        <h2>Common Input Types</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Input Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>text</code></td><td>Single-line text input</td></tr>
+              <tr><td><code>password</code></td><td>Hidden password input (characters masked)</td></tr>
+              <tr><td><code>email</code></td><td>Validates email format</td></tr>
+              <tr><td><code>number</code></td><td>Numeric input</td></tr>
+              <tr><td><code>date</code></td><td>Date picker</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>Form with email and number inputs. Run it to see the different types.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+Rm9ybSBDb250cm9scyBFeGFtcGxlPC90aXRsZT4KPC9oZWFkPgo8Ym9keT4KPGZvcm0+CjxsYWJlbCBmb3I9ImVtYWlsIj5FbWFpbDo8L2xhYmVsPgo8aW5wdXQgdHlwZT0iZW1haWwiIGlkPSJlbWFpbCIgbmFtZT0iZW1haWwiIHBsYWNlaG9sZGVyPSJ5b3VAZXhhbXBsZS5jb20iPgo8bGFiZWwgZm9yPSJhZ2UiPkFnZTo8L2xhYmVsPgo8aW5wdXQgdHlwZT0ibnVtYmVyIiBpZD0iYWdlIiBuYW1lPSJhZ2UiIG1pbj0iMSIgbWF4PSIxMjAiPgo8YnV0dG9uIHR5cGU9InN1Ym1pdCI+U3VibWl0PC9idXR0b24+CjwvZm9ybT4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Form Controls Example<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;form&gt;</span>
+<span class="tag">&lt;label for="email"&gt;</span>Email:<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input type="email" id="email" name="email" placeholder="you@example.com"&gt;</span>
+<span class="tag">&lt;label for="age"&gt;</span>Age:<span class="tag">&lt;/label&gt;</span>
+<span class="tag">&lt;input type="number" id="age" name="age" min="1" max="120"&gt;</span>
+<span class="tag">&lt;button type="submit"&gt;</span>Submit<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="checkbox" class="tutorial-section">
+        <h2>Checkbox Input</h2>
+        <p>
+          <strong>Checkboxes</strong> are used when users can select <strong>multiple options</strong>. Each checkbox has its own <code>name</code> (or the same name for a group); the <code>value</code> is sent when the box is checked.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;input type="checkbox" id="subscribe" name="subscribe"&gt;</span>
+<span class="tag">&lt;label for="subscribe"&gt;</span>Subscribe to newsletter<span class="tag">&lt;/label&gt;</span></code></pre>
+      </section>
+
+      <section id="radio" class="tutorial-section">
+        <h2>Radio Buttons</h2>
+        <p>
+          <strong>Radio buttons</strong> are used when the user must select <strong>only one option</strong> from a group. All options in the group share the same <code>name</code>; each has a different <code>value</code>.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;input type="radio" name="gender" value="male"&gt;</span> Male
+<span class="tag">&lt;input type="radio" name="gender" value="female"&gt;</span> Female</code></pre>
+      </section>
+
+      <section id="select" class="tutorial-section">
+        <h2>Select Dropdown</h2>
+        <p>
+          The <code>&lt;select&gt;</code> element creates a <strong>dropdown menu</strong>. Each <code>&lt;option&gt;</code> is one choice; the <code>value</code> is sent when that option is selected.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;select name="country"&gt;</span>
+
+<span class="tag">&lt;option value="us"&gt;</span>United States<span class="tag">&lt;/option&gt;</span>
+<span class="tag">&lt;option value="uk"&gt;</span>United Kingdom<span class="tag">&lt;/option&gt;</span>
+
+<span class="tag">&lt;/select&gt;</span></code></pre>
+      </section>
+
+      <section id="textarea" class="tutorial-section">
+        <h2>Textarea Element</h2>
+        <p>
+          The <code>&lt;textarea&gt;</code> element is used for <strong>multi-line text input</strong> (e.g. comments or messages). You can set the size with <code>rows</code> and <code>cols</code>, or with CSS.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;textarea name="message" rows="4" cols="50"&gt;</span>
+Enter your message
+<span class="tag">&lt;/textarea&gt;</span></code></pre>
+      </section>
+
+      <section id="button" class="tutorial-section">
+        <h2>Button Element</h2>
+        <p>
+          The <code>&lt;button&gt;</code> element creates a clickable button. The <code>type</code> attribute controls its behavior:
+        </p>
+        <ul>
+          <li><code>submit</code> — submits the form</li>
+          <li><code>reset</code> — resets form fields to their initial values</li>
+          <li><code>button</code> — no default action (use with JavaScript)</li>
+        </ul>
+        <pre class="pre-block"><code><span class="tag">&lt;button type="submit"&gt;</span>Submit<span class="tag">&lt;/button&gt;</span></code></pre>
+      </section>
+
+      <section id="validation-attributes" class="tutorial-section">
+        <h2>Form Validation Attributes</h2>
+        <p>HTML5 provides attributes that let the browser validate input before submission:</p>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Attribute</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>required</code></td><td>Field must be filled before submit</td></tr>
+              <tr><td><code>maxlength</code></td><td>Limits maximum input length</td></tr>
+              <tr><td><code>pattern</code></td><td>Validates input against a regular expression</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Example:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;input type="text" name="username" required maxlength="10"&gt;</span></code></pre>
+      </section>
+
+      <section id="placeholder" class="tutorial-section">
+        <h2>Placeholder Attribute</h2>
+        <p>
+          The <code>placeholder</code> attribute shows <strong>hint text</strong> inside the input when it is empty. It disappears when the user types. It does not replace a proper <code>&lt;label&gt;</code> for accessibility.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;input type="text" placeholder="Enter your username"&gt;</span></code></pre>
+      </section>
+
+      <section id="name-value" class="tutorial-section">
+        <h2>Name and Value Attributes</h2>
+        <p>
+          The <code>name</code> attribute <strong>identifies the input</strong> when the form is sent to the server. Each field that should be submitted needs a <code>name</code>. The server receives name–value pairs (e.g. <code>username=JohnDoe</code>).
+        </p>
+        <p>
+          The <code>value</code> attribute sets the <strong>default value</strong> of an input. For text fields it’s what appears in the box; for buttons it’s the submitted value when that button is used.
+        </p>
+        <pre class="pre-block"><code><span class="tag">&lt;input type="text" name="username" value="JohnDoe"&gt;</span></code></pre>
+      </section>
+
+      <section id="submission-process" class="tutorial-section">
+        <h2>Form Submission Process</h2>
+        <p>How form submission works:</p>
+        <ol>
+          <li><strong>User fills form fields</strong> — enters data in inputs, selects options, etc.</li>
+          <li><strong>Browser sends data to server</strong> — when the user submits (e.g. clicks Submit), the browser collects name–value pairs and sends them using the form’s <code>action</code> and <code>method</code>.</li>
+          <li><strong>Server processes the request</strong> — the server (or server-side script) validates the data, saves it, sends email, etc.</li>
+          <li><strong>Response is returned to the browser</strong> — the server sends back a new page, a redirect, or JSON so the user sees a result or confirmation.</li>
+        </ol>
+      </section>
+
+      <section id="javascript-enhancements" class="tutorial-section">
+        <h2>Form Enhancements with JavaScript</h2>
+        <p>JavaScript can improve forms without replacing server-side validation. Examples:</p>
+        <ul>
+          <li><strong>Real-time validation</strong> — check fields as the user types and show errors before submit</li>
+          <li><strong>Dynamic form fields</strong> — add or remove fields, show/hide sections based on previous answers</li>
+          <li><strong>Interactive behavior</strong> — auto-format input, suggest values, or prevent submit until required fields are valid</li>
+        </ul>
+        <p>Always validate on the server as well; client-side validation improves UX but can be bypassed.</p>
+      </section>
+
+      <section id="practice" class="tutorial-section code-section">
+        <h2>End-of-Lecture Practice</h2>
+        <p>Practice form for Lecture 6. Try it Yourself to run and experiment.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPHRpdGxlPkhUTUwgRm9ybXMgLSBQcmFjdGljZTwvdGl0bGU+CjwvaGVhZD4KPGJvZHk+CjxoMT5Db21wbGV0ZSBGb3JtIFByYWN0aWNlPC9oMT4KPGZvcm0gYWN0aW9uPSIjIiBtZXRob2Q9InBvc3QiPgo8bGFiZWwgZm9yPSJuYW1lIj5GdWxsIE5hbWU6PC9sYWJlbD4KPGlucHV0IHR5cGU9InRleHQiIGlkPSJuYW1lIiBuYW1lPSJuYW1lIiByZXF1aXJlZD48YnI+PGJyPgo8bGFiZWwgZm9yPSJlbWFpbCI+RW1haWw6PC9sYWJlbD4KPGlucHV0IHR5cGU9ImVtYWlsIiBpZD0iZW1haWwiIG5hbWU9ImVtYWlsIiBwbGFjZWhvbGRlcj0ieW91QGV4YW1wbGUuY29tIj48YnI+PGJyPgo8bGFiZWwgZm9yPSJhZ2UiPkFnZTo8L2xhYmVsPgo8aW5wdXQgdHlwZT0ibnVtYmVyIiBpZD0iYWdlIiBuYW1lPSJhZ2UiIG1pbj0iMSIgbWF4PSIxMjAiPjxicj48YnI+CjxsYWJlbD5Db3VudHJ5OjwvbGFiZWw+CjxzZWxlY3QgbmFtZT0iY291bnRyeSI+CjxvcHRpb24gdmFsdWU9InBrIj5QYWtpc3Rhbjwvb3B0aW9uPgo8b3B0aW9uIHZhbHVlPSJ1cyI+VVNBPC9vcHRpb24+CjxvcHRpb24gdmFsdWU9InVrIj5VSzwvb3B0aW9uPgo8L3NlbGVjdD48YnI+PGJyPgo8bGFiZWw+PGlucHV0IHR5cGU9ImNoZWNrYm94IiBuYW1lPSJuZXdzbGV0dGVyIj4gU3Vic2NyaWJlIHRvIG5ld3NsZXR0ZXI8L2xhYmVsPjxicj48YnI+CjxsYWJlbD5HZW5kZXI6IDxpbnB1dCB0eXBlPSJyYWRpbyIgbmFtZT0iZ2VuZGVyIiB2YWx1ZT0ibSI+IE1hbGUgPGlucHV0IHR5cGU9InJhZGlvIiBuYW1lPSJnZW5kZXIiIHZhbHVlPSJmIj4gRmVtYWxlPC9sYWJlbD48YnI+PGJyPgo8bGFiZWwgZm9yPSJtc2ciPk1lc3NhZ2U6PC9sYWJlbD48YnI+Cjx0ZXh0YXJlYSBpZD0ibXNnIiBuYW1lPSJtZXNzYWdlIiByb3dzPSIzIiBjb2xzPSI0MCI+PC90ZXh0YXJlYT48YnI+PGJyPgo8YnV0dG9uIHR5cGU9InN1Ym1pdCI+U3VibWl0PC9idXR0b24+CjxidXR0b24gdHlwZT0icmVzZXQiPlJlc2V0PC9idXR0b24+CjwvZm9ybT4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Practice Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html lang="en"&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>HTML Forms - Practice<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;h1&gt;</span>Complete Form Practice<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;form action="#" method="post"&gt;</span>
+<span class="tag">&lt;label for="name"&gt;</span>Full Name:<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;input type="text" id="name" name="name" required&gt;</span><span class="tag">&lt;br&gt;</span>
+<span class="tag">&lt;label for="email"&gt;</span>Email:<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;input type="email" id="email" name="email" placeholder="you@example.com"&gt;</span><span class="tag">&lt;br&gt;</span>
+<span class="tag">&lt;label for="age"&gt;</span>Age:<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;input type="number" id="age" name="age" min="1" max="120"&gt;</span><span class="tag">&lt;br&gt;</span>
+<span class="tag">&lt;label&gt;</span>Country:<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;select name="country"&gt;</span><span class="tag">&lt;option value="pk"&gt;</span>Pakistan<span class="tag">&lt;/option&gt;</span><span class="tag">&lt;option value="us"&gt;</span>USA<span class="tag">&lt;/option&gt;</span><span class="tag">&lt;/select&gt;</span><span class="tag">&lt;br&gt;</span>
+<span class="tag">&lt;label&gt;</span><span class="tag">&lt;input type="checkbox" name="newsletter"&gt;</span> Subscribe<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;br&gt;</span>
+<span class="tag">&lt;label&gt;</span>Gender: <span class="tag">&lt;input type="radio" name="gender" value="m"&gt;</span> Male <span class="tag">&lt;input type="radio" name="gender" value="f"&gt;</span> Female<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;br&gt;</span>
+<span class="tag">&lt;label for="msg"&gt;</span>Message:<span class="tag">&lt;/label&gt;</span><span class="tag">&lt;br&gt;</span><span class="tag">&lt;textarea id="msg" name="message" rows="3" cols="40"&gt;</span><span class="tag">&lt;/textarea&gt;</span><span class="tag">&lt;br&gt;</span>
+<span class="tag">&lt;button type="submit"&gt;</span>Submit<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;button type="reset"&gt;</span>Reset<span class="tag">&lt;/button&gt;</span>
+<span class="tag">&lt;/form&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="tutorial-section">
+        <h2>Lecture Summary</h2>
+        <div class="summary-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>HTML forms collect user input and send it to a server.</li>
+            <li>The <code>&lt;form&gt;</code> element contains form controls and defines <code>action</code> and <code>method</code>.</li>
+            <li>Input elements provide various data types (text, email, number, checkbox, radio, etc.).</li>
+            <li>Validation attributes (<code>required</code>, <code>maxlength</code>, <code>pattern</code>) improve data accuracy.</li>
+            <li>Forms communicate with servers to process data; JavaScript can enhance the experience.</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="lecture-nav-buttons">
+        <a href="lecture5.html" class="btn btn--secondary">&#8592; Previous Lecture</a>
+        <a href="lecture7.html" class="btn">Next Lecture &#8594;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

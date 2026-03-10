@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 5: HTML5 Introduction | Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="navbar__brand">Web Technologies</a>
+    <button class="navbar__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#lectures">Lectures</a></li>
+    </ul>
+  </header>
+
+  <div class="lecture-layout">
+    <aside class="lecture-sidebar">
+      <div class="lecture-sidebar__title">Lectures</div>
+      <ul class="lecture-sidebar__list">
+        <li><a href="lecture1.html">1. Introduction to Web Platforms</a></li>
+        <li><a href="lecture2.html">2. Categories of Web Applications</a></li>
+        <li><a href="lecture3.html">3. HTML Basics</a></li>
+        <li><a href="lecture4.html">4. Tables, Div, Span and Layout</a></li>
+        <li><a href="lecture5.html">5. HTML5 Introduction</a></li>
+        <li><a href="lecture6.html">6. HTML Forms</a></li>
+        <li><a href="lecture7.html">7. CSS Introduction</a></li>
+        <li><a href="lecture8.html">8. CSS Selectors</a></li>
+      </ul>
+    </aside>
+    <main class="lecture-main">
+      <section id="intro" class="tutorial-section">
+        <h1>HTML5 Introduction</h1>
+        <span class="lecture-badge">Lecture 5 &bull; Reading time: 10 minutes</span>
+        <p class="lecture-summary">
+          HTML5 is the latest version of the HTML standard and is used for modern web development. It introduces new elements, native multimedia, better semantics, and improved APIs for building responsive, accessible web applications.
+        </p>
+      </section>
+
+      <section id="what-is-html5" class="tutorial-section">
+        <h2>What is HTML5?</h2>
+        <p>
+          <strong>HTML5</strong> is the latest version of HTML that introduces new elements, attributes, and behaviors for modern web applications. It focuses on:
+        </p>
+        <ul>
+          <li><strong>Better semantics</strong> — elements that describe the meaning of content (e.g. <code>&lt;header&gt;</code>, <code>&lt;article&gt;</code>)</li>
+          <li><strong>Multimedia support</strong> — native <code>&lt;audio&gt;</code> and <code>&lt;video&gt;</code> without plugins</li>
+          <li><strong>Device independence</strong> — works across desktops, tablets, and mobile with responsive design</li>
+        </ul>
+        <p>Every HTML5 document starts with a simple DOCTYPE:</p>
+        <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span></code></pre>
+      </section>
+
+      <section id="key-features" class="tutorial-section">
+        <h2>Key Features of HTML5</h2>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Responsive Design</h3>
+            <p class="tutorial-card__desc">HTML5 works with CSS media queries and flexible layouts so pages adapt to different screen sizes.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Viewport Meta Tag</h3>
+            <p class="tutorial-card__desc">The viewport meta tag lets you control how the page is scaled on mobile devices for better readability.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Flexible Multimedia</h3>
+            <p class="tutorial-card__desc">Native audio and video elements allow embedding media without Flash or other plugins.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Cross-Platform Compatibility</h3>
+            <p class="tutorial-card__desc">HTML5 is supported across modern browsers and devices, enabling a single codebase for multiple platforms.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">New Form Input Types</h3>
+            <p class="tutorial-card__desc">Input types like email, date, number, and range provide built-in validation and better UX.</p>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Offline Support</h3>
+            <p class="tutorial-card__desc">APIs like localStorage and service workers allow apps to work offline or cache data locally.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="html5-vs-previous" class="tutorial-section">
+        <h2>HTML5 vs Previous Versions</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>HTML4</th>
+                <th>HTML5</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Structure</strong></td>
+                <td>Mostly div and span</td>
+                <td>Semantic elements (header, main, footer, etc.)</td>
+              </tr>
+              <tr>
+                <td><strong>Multimedia</strong></td>
+                <td>Required plugins (e.g. Flash)</td>
+                <td>Native support (audio, video)</td>
+              </tr>
+              <tr>
+                <td><strong>Forms</strong></td>
+                <td>Limited input types</td>
+                <td>Many new input types (email, date, range, etc.)</td>
+              </tr>
+              <tr>
+                <td><strong>Graphics</strong></td>
+                <td>Not supported</td>
+                <td>Canvas and SVG support</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="semantic-importance" class="tutorial-section">
+        <h2>Importance of Semantic HTML</h2>
+        <p>Semantic HTML uses elements that convey the <strong>meaning</strong> of content, not just how it looks. This matters for both people and machines.</p>
+        <div class="info-box">
+          <strong>Benefits</strong>
+          <ul style="margin:0.5rem 0 0 1.25rem; padding:0;">
+            <li>Better accessibility — screen readers and assistive tech can understand structure</li>
+            <li>Improved SEO — search engines use semantic cues to understand your page</li>
+            <li>Cleaner code structure — easier to read and maintain</li>
+            <li>Easier maintenance — sections are clearly identified</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="semantic-overview" class="tutorial-section">
+        <h2>Semantic Elements Overview</h2>
+        <p>Semantic elements <strong>describe the meaning</strong> of the content they wrap. Instead of generic <code>&lt;div&gt;</code> or <code>&lt;span&gt;</code>, you use elements that say what the content is:</p>
+        <ul>
+          <li><code>&lt;header&gt;</code> — page or section header</li>
+          <li><code>&lt;footer&gt;</code> — page or section footer</li>
+          <li><code>&lt;section&gt;</code> — grouped theme content</li>
+          <li><code>&lt;article&gt;</code> — self-contained content (e.g. blog post)</li>
+          <li><code>&lt;nav&gt;</code> — navigation links</li>
+          <li><code>&lt;aside&gt;</code> — sidebar or tangentially related content</li>
+        </ul>
+      </section>
+
+      <section id="semantic-vs-nonsemantic" class="tutorial-section">
+        <h2>Semantic vs Non-Semantic Elements</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Type</th>
+                <th>Example</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Non-Semantic</strong></td>
+                <td><code>div</code>, <code>span</code></td>
+                <td>No inherent meaning; used for grouping or styling only</td>
+              </tr>
+              <tr>
+                <td><strong>Semantic</strong></td>
+                <td><code>header</code>, <code>article</code></td>
+                <td>Clearly describes the content’s role (header, article, nav, etc.)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="semantic-elements-detail" class="tutorial-section">
+        <h2>HTML5 Semantic Elements</h2>
+
+        <h3><code>&lt;header&gt;</code></h3>
+        <p>Contains page or section header content: logo, main heading, or top navigation.</p>
+
+        <h3><code>&lt;footer&gt;</code></h3>
+        <p>Contains footer information: copyright, links, contact details, or related info at the bottom of a page or section.</p>
+
+        <h3><code>&lt;article&gt;</code></h3>
+        <p>Self-contained content that could stand alone, such as a blog post, news item, or comment.</p>
+
+        <h3><code>&lt;section&gt;</code></h3>
+        <p>Groups related content under a theme, often with its own heading (e.g. “Introduction”, “Features”).</p>
+
+        <h3><code>&lt;nav&gt;</code></h3>
+        <p>Wraps navigation links: main menu, table of contents, or other link groups.</p>
+
+        <h3><code>&lt;aside&gt;</code></h3>
+        <p>Sidebar or tangentially related content (e.g. related links, ads, author info).</p>
+      </section>
+
+      <section id="figure-figcaption" class="tutorial-section code-section">
+        <h2>Figure and Figcaption</h2>
+        <p>Figure wraps images or diagrams; figcaption adds a caption. Run it to see.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+RmlndXJlIGFuZCBGaWdjYXB0aW9uPC90aXRsZT4KPC9oZWFkPgo8Ym9keT4KPGZpZ3VyZT4KPGltZyBzcmM9ImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB3aWR0aD0nMjAwJyBoZWlnaHQ9JzIwMCclM0UlM0NyZWN0IGZpbGw9JyUyM2U4ZThlOCcgd2lkdGg9JzIwMCcgaGVpZ2h0PScyMDAnLyUzRSUzQ3RleHQgZmlsbD0nJTIzOTk5JyBmb250LXNpemU9JzE0JyBmb250LWZhbWlseT0nc2Fucy1zZXJpZicgeD0nMTAwJyB5PScxMDUnIHRleHQtYW5jaG9yPSdtaWRkbGUnJTNFU2FtcGxlIGltYWdlJTNDL3RleHQlM0UlM0Mvc3ZnJTNFIiBhbHQ9IlNhbXBsZSBpbWFnZSI+CjxmaWdjYXB0aW9uPkNhcHRpb24gZm9yIHRoZSBpbWFnZTwvZmlnY2FwdGlvbj4KPC9maWd1cmU+CjwvYm9keT4KPC9odG1sPg==">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>Figure and Figcaption<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;figure&gt;</span>
+<span class="tag">&lt;img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23e8e8e8' width='200' height='200'/%3E%3Ctext fill='%23999' font-size='14' x='100' y='105' text-anchor='middle'%3ESample%3C/text%3E%3C/svg%3E" alt="Sample image"&gt;</span>
+<span class="tag">&lt;figcaption&gt;</span>Caption for the image<span class="tag">&lt;/figcaption&gt;</span>
+<span class="tag">&lt;/figure&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="multimedia" class="tutorial-section">
+        <h2>Multimedia in HTML5</h2>
+        <p>HTML5 supports audio and video <strong>without plugins</strong>. Browsers provide built-in controls and choose the best format to play.</p>
+        <p><strong>Video example:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;video controls&gt;</span>
+<span class="tag">&lt;source src="video.mp4" type="video/mp4"&gt;</span>
+<span class="tag">&lt;/video&gt;</span></code></pre>
+        <p><strong>Audio example:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;audio controls&gt;</span>
+<span class="tag">&lt;source src="audio.mp3" type="audio/mp3"&gt;</span>
+<span class="tag">&lt;/audio&gt;</span></code></pre>
+      </section>
+
+      <section id="canvas" class="tutorial-section">
+        <h2>The Canvas Element</h2>
+        <p>The <code>&lt;canvas&gt;</code> element creates a drawing area that you control with <strong>JavaScript</strong>. It has no visible content until you draw on it (shapes, text, images).</p>
+        <pre class="pre-block"><code><span class="tag">&lt;canvas id="myCanvas" width="500" height="400"&gt;</span><span class="tag">&lt;/canvas&gt;</span></code></pre>
+        <p>Canvas is often used for:</p>
+        <ul>
+          <li>Games</li>
+          <li>Animations</li>
+          <li>Charts and data visualizations</li>
+        </ul>
+      </section>
+
+      <section id="new-input-types" class="tutorial-section">
+        <h2>New Input Types</h2>
+        <p>HTML5 adds many new <code>&lt;input&gt;</code> types that improve validation and user experience:</p>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Input Type</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>email</code></td><td>Email validation</td></tr>
+              <tr><td><code>url</code></td><td>Website address</td></tr>
+              <tr><td><code>date</code></td><td>Date picker</td></tr>
+              <tr><td><code>number</code></td><td>Numeric input</td></tr>
+              <tr><td><code>range</code></td><td>Slider input</td></tr>
+              <tr><td><code>tel</code></td><td>Telephone input</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p><strong>Example:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;input type="email" placeholder="Enter your email"&gt;</span></code></pre>
+      </section>
+
+      <section id="try-html5-page" class="tutorial-section code-section">
+        <h2>Try it: HTML5 Page Example</h2>
+        <p>HTML5 page with header, main, and footer. Run it to see the structure.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPG1ldGEgY2hhcnNldD0idXRmLTgiPgo8dGl0bGU+SFRNTDUgRXhhbXBsZTwvdGl0bGU+CjwvaGVhZD4KPGJvZHk+CjxoZWFkZXI+PGgxPkhUTUw1IFNlbWFudGljIFBhZ2U8L2gxPjwvaGVhZGVyPgo8bWFpbj48cD5UaGlzIHBhZ2UgdXNlcyBzZW1hbnRpYyBzdHJ1Y3R1cmUuPC9wPjwvbWFpbj4KPGZvb3Rlcj48cD5Gb290ZXI8L3A+PC9mb290ZXI+CjwvYm9keT4KPC9odG1sPg==">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;title&gt;</span>HTML5 Example<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;header&gt;</span><span class="tag">&lt;h1&gt;</span>HTML5 Semantic Page<span class="tag">&lt;/h1&gt;</span><span class="tag">&lt;/header&gt;</span>
+<span class="tag">&lt;main&gt;</span><span class="tag">&lt;p&gt;</span>This page uses semantic structure.<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/main&gt;</span>
+<span class="tag">&lt;footer&gt;</span><span class="tag">&lt;p&gt;</span>Footer<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/footer&gt;</span>
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="html5-storage" class="tutorial-section">
+        <h2>HTML5 Storage</h2>
+        <p>HTML5 provides simple storage APIs so you can keep data in the browser:</p>
+        <p><strong>localStorage</strong> — stores data with no expiry; it stays until the user or script removes it.</p>
+        <p><strong>sessionStorage</strong> — stores data only for the current browser session; it is cleared when the tab or window is closed.</p>
+        <p><strong>Example:</strong></p>
+        <pre class="pre-block"><code>localStorage.setItem("name", "Ali")</code></pre>
+        <p><strong>Code explanation:</strong> The line above stores the value <code>"Ali"</code> under the key <code>"name"</code> in the browser’s local storage. To see it in action, run this inside the browser console or in a script on a real page.</p>
+      </section>
+
+      <section id="browser-compatibility" class="tutorial-section">
+        <h2>Browser Compatibility</h2>
+        <p>HTML5 is supported in all modern browsers. You can rely on semantic elements, multimedia, and new form features in:</p>
+        <ul>
+          <li>Chrome</li>
+          <li>Firefox</li>
+          <li>Safari</li>
+          <li>Edge</li>
+        </ul>
+        <p>For older browsers, you can use polyfills or progressive enhancement: basic content works everywhere, and HTML5 features enhance the experience where supported.</p>
+      </section>
+
+      <section id="practice" class="tutorial-section code-section">
+        <h2>End-of-Lecture Practice</h2>
+        <p>Practice page for Lecture 5. Try it Yourself to run and experiment.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPHRpdGxlPkhUTUw1IFNlbWFudGljIC0gUHJhY3RpY2U8L3RpdGxlPgo8L2hlYWQ+Cjxib2R5Pgo8aGVhZGVyPjxoMT5IVE1MNSBTZW1hbnRpYyBQYWdlPC9oMT48bmF2PjxhIGhyZWY9IiNtYWluIj5NYWluPC9hPiB8IDxhIGhyZWY9IiNhc2lkZSI+QXNpZGU8L2E+PC9uYXY+PC9oZWFkZXI+CjxtYWluIGlkPSJtYWluIj4KPGFydGljbGU+CjxoMj5BcnRpY2xlIFRpdGxlPC9oMj4KPHA+U2VtYW50aWMgSFRNTDUgdXNlcyBlbGVtZW50cyB0aGF0IGRlc2NyaWJlIG1lYW5pbmc6IGhlYWRlciwgbmF2LCBtYWluLCBhcnRpY2xlLCBhc2lkZSwgZm9vdGVyLjwvcD4KPC9hcnRpY2xlPgo8ZmlndXJlPgo8aW1nIHNyYz0iZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScyMDAnIGhlaWdodD0nMjAwJyUzRSUzQ3JlY3QgZmlsbD0nJTIzZThlOGU4JyB3aWR0aD0nMjAwJyBoZWlnaHQ9JzIwMCcvJTNFJTNDdGV4dCBmaWxsPSclMjM5OTknIGZvbnQtc2l6ZT0nMTQnIGZvbnQtZmFtaWx5PSdzYW5zLXNlcmlmJyB4PScxMDAnIHk9JzEwNScgdGV4dC1hbmNob3I9J21pZGRsZSclM0VTYW1wbGUgaW1hZ2UlM0MvdGV4dCUzRSUzQy9zdmclM0UiIGFsdD0iRXhhbXBsZSI+CjxmaWdjYXB0aW9uPkZpZ3VyZSB3aXRoIGNhcHRpb248L2ZpZ2NhcHRpb24+CjwvZmlndXJlPgo8L21haW4+Cjxhc2lkZSBpZD0iYXNpZGUiPjxwPkFzaWRlOiByZWxhdGVkIGNvbnRlbnQgb3Igc2lkZWJhci48L3A+PC9hc2lkZT4KPGZvb3Rlcj48cD5MZWN0dXJlIDUgUHJhY3RpY2UgLSBTZW1hbnRpYyBIVE1MNTwvcD48L2Zvb3Rlcj4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Practice Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html lang="en"&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>HTML5 Semantic - Practice<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;header&gt;</span><span class="tag">&lt;h1&gt;</span>HTML5 Semantic Page<span class="tag">&lt;/h1&gt;</span><span class="tag">&lt;nav&gt;</span><span class="tag">&lt;a href="#main"&gt;</span>Main<span class="tag">&lt;/a&gt;</span> | <span class="tag">&lt;a href="#aside"&gt;</span>Aside<span class="tag">&lt;/a&gt;</span><span class="tag">&lt;/nav&gt;</span><span class="tag">&lt;/header&gt;</span>
+<span class="tag">&lt;main id="main"&gt;</span>
+<span class="tag">&lt;article&gt;</span><span class="tag">&lt;h2&gt;</span>Article Title<span class="tag">&lt;/h2&gt;</span><span class="tag">&lt;p&gt;</span>Semantic HTML5: header, nav, main, article, figure, aside, footer.<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/article&gt;</span>
+<span class="tag">&lt;figure&gt;</span><span class="tag">&lt;img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Crect fill='%23e8e8e8' width='200' height='200'/%3E%3Ctext fill='%23999' font-size='14' x='100' y='105' text-anchor='middle'%3ESample%3C/text%3E%3C/svg%3E" alt="Example"&gt;</span><span class="tag">&lt;figcaption&gt;</span>Figure with caption<span class="tag">&lt;/figcaption&gt;</span><span class="tag">&lt;/figure&gt;</span>
+<span class="tag">&lt;/main&gt;</span>
+<span class="tag">&lt;aside id="aside"&gt;</span><span class="tag">&lt;p&gt;</span>Aside: related content or sidebar.<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/aside&gt;</span>
+<span class="tag">&lt;footer&gt;</span><span class="tag">&lt;p&gt;</span>Lecture 5 Practice<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/footer&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="tutorial-section">
+        <h2>Lecture Summary</h2>
+        <div class="summary-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>HTML5 is the modern standard of HTML with new elements and APIs.</li>
+            <li>Semantic elements improve structure, accessibility, and SEO.</li>
+            <li>Native multimedia (audio, video) removes the need for plugins.</li>
+            <li>New form input types improve validation and user experience.</li>
+            <li>HTML5 storage (localStorage, sessionStorage) allows data persistence in the browser.</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="lecture-nav-buttons">
+        <a href="lecture4.html" class="btn btn--secondary">&#8592; Previous Lecture</a>
+        <a href="lecture6.html" class="btn">Next Lecture &#8594;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>

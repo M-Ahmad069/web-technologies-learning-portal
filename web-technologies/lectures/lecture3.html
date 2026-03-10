@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lecture 3: HTML Basics | Web Technologies</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <header class="navbar">
+    <a href="../index.html" class="navbar__brand">Web Technologies</a>
+    <button class="navbar__toggle" type="button" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-links">&#9776;</button>
+    <ul class="navbar__links" id="nav-links">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="../index.html#lectures">Lectures</a></li>
+    </ul>
+  </header>
+
+  <div class="lecture-layout">
+    <aside class="lecture-sidebar">
+      <div class="lecture-sidebar__title">Lectures</div>
+      <ul class="lecture-sidebar__list">
+        <li><a href="lecture1.html">1. Introduction to Web Platforms</a></li>
+        <li><a href="lecture2.html">2. Categories of Web Applications</a></li>
+        <li><a href="lecture3.html">3. HTML Basics</a></li>
+        <li><a href="lecture4.html">4. Tables, Div, Span and Layout</a></li>
+        <li><a href="lecture5.html">5. HTML5 Introduction</a></li>
+        <li><a href="lecture6.html">6. HTML Forms</a></li>
+        <li><a href="lecture7.html">7. CSS Introduction</a></li>
+        <li><a href="lecture8.html">8. CSS Selectors</a></li>
+      </ul>
+    </aside>
+    <main class="lecture-main">
+      <section id="intro" class="tutorial-section">
+        <h1>HTML Basics</h1>
+        <span class="lecture-badge">Lecture 3 &bull; Reading time: 10 minutes</span>
+        <p class="lecture-summary">
+          HTML is the standard language used to structure web pages. This lecture introduces the basics of HTML, its history, how it relates to XML and XHTML, and how to write valid, well-structured markup.
+        </p>
+      </section>
+
+      <section id="what-is-html" class="tutorial-section">
+        <h2>What is HTML?</h2>
+        <p>
+          <strong>HTML</strong> stands for <strong>HyperText Markup Language</strong>. It is used to create and structure web pages using tags and elements. Browsers read HTML and render it as the visual and interactive page you see.
+        </p>
+        <div class="definition-box">
+          <strong>Definition</strong>
+          <p>A <strong>markup language</strong> is a system that uses tags to annotate text and define structure and meaning. HTML uses tags like <code>&lt;p&gt;</code> and <code>&lt;h1&gt;</code> to mark paragraphs, headings, links, and other content so browsers know how to display them.</p>
+        </div>
+      </section>
+
+      <section id="history" class="tutorial-section">
+        <h2>History of HTML</h2>
+        <p>HTML has evolved over decades. Major milestones:</p>
+        <div class="timeline timeline--vertical">
+          <div class="timeline__item">
+            <div class="timeline__label">1989</div>
+            <div class="timeline__desc">Tim Berners-Lee invents HTML</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__label">1993</div>
+            <div class="timeline__desc">HTML 1.0 released</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__label">1995</div>
+            <div class="timeline__desc">HTML 2.0 introduces forms and tables</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__label">1997</div>
+            <div class="timeline__desc">HTML 4.0 adds multimedia support</div>
+          </div>
+          <div class="timeline__item">
+            <div class="timeline__label">2014</div>
+            <div class="timeline__desc">HTML5 becomes the modern standard</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="evolution" class="tutorial-section">
+        <h2>Evolution of HTML</h2>
+        <p>
+          HTML 1.0 through 4.01 focused on page structure, links, forms, and tables. HTML5, finalized in 2014, introduced multimedia (audio, video), semantic elements (header, nav, main, footer), and better support for modern web applications and APIs.
+        </p>
+      </section>
+
+      <section id="what-is-xml" class="tutorial-section">
+        <h2>What is XML?</h2>
+        <div class="definition-box">
+          <strong>Definition</strong>
+          <p><strong>XML</strong> (eXtensible Markup Language) is a markup language used to store and transport data. Unlike HTML, XML does not have predefined tags; you define your own tags to describe the data.</p>
+        </div>
+        <p>Example:</p>
+        <pre class="pre-block"><code><span class="tag">&lt;bookstore&gt;</span>
+ <span class="tag">&lt;book&gt;</span>
+  <span class="tag">&lt;title&gt;</span>Learning XML<span class="tag">&lt;/title&gt;</span>
+  <span class="tag">&lt;author&gt;</span>John Doe<span class="tag">&lt;/author&gt;</span>
+ <span class="tag">&lt;/book&gt;</span>
+<span class="tag">&lt;/bookstore&gt;</span></code></pre>
+      </section>
+
+      <section id="what-is-xhtml" class="tutorial-section">
+        <h2>What is XHTML?</h2>
+        <p>
+          <strong>XHTML</strong> (eXtensible HyperText Markup Language) is a stricter version of HTML based on XML. It requires well-formed markup so that documents can be parsed consistently.
+        </p>
+        <p>XHTML requires:</p>
+        <ul>
+          <li>Properly closed tags</li>
+          <li>Correct nesting</li>
+          <li>Lowercase tags</li>
+          <li>Valid document structure (e.g. one root element, proper DOCTYPE)</li>
+        </ul>
+      </section>
+
+      <section id="html-vs-xhtml" class="tutorial-section">
+        <h2>HTML vs XHTML</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>HTML</th>
+                <th>XHTML</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Syntax rules</strong></td>
+                <td>More forgiving</td>
+                <td>Strict, XML-based</td>
+              </tr>
+              <tr>
+                <td><strong>Tag closing</strong></td>
+                <td>Some tags can be unclosed (e.g. &lt;br&gt;, &lt;img&gt;)</td>
+                <td>All tags must be closed (e.g. &lt;br /&gt;, &lt;img /&gt;)</td>
+              </tr>
+              <tr>
+                <td><strong>Case sensitivity</strong></td>
+                <td>Tags often uppercase in older use</td>
+                <td>Lowercase required</td>
+              </tr>
+              <tr>
+                <td><strong>Strictness</strong></td>
+                <td>Browsers may fix errors</td>
+                <td>Errors can prevent rendering</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="structure-example" class="tutorial-section code-section">
+        <h2>HTML Structure Example</h2>
+        <p>Basic HTML with head and body. Use Run Code or Try it Yourself to see it.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sPgo8aGVhZD4KPHRpdGxlPkhlbGxvITwvdGl0bGU+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPC9oZWFkPgoKPGJvZHk+Cgo8aDE+SGVsbG8gV29ybGQ8L2gxPgo8cD5UaGlzIGlzIG15IGZpcnN0IEhUTUwgcGFnZS48L3A+Cgo8L2JvZHk+CjwvaHRtbD4=">
+          <div class="code-block-header">Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html&gt;</span>
+<span class="tag">&lt;head&gt;</span>
+<span class="tag">&lt;title&gt;</span>Hello!<span class="tag">&lt;/title&gt;</span>
+<span class="tag">&lt;meta charset="utf-8"&gt;</span>
+<span class="tag">&lt;/head&gt;</span>
+
+<span class="tag">&lt;body&gt;</span>
+
+<span class="tag">&lt;h1&gt;</span>Hello World<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>This is my first HTML page.<span class="tag">&lt;/p&gt;</span>
+
+<span class="tag">&lt;/body&gt;</span>
+<span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="html-elements" class="tutorial-section">
+        <h2>HTML Elements</h2>
+        <p>An HTML element usually consists of an <strong>opening tag</strong>, <strong>content</strong>, and a <strong>closing tag</strong>.</p>
+        <p><strong>Example:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;h1&gt;</span>Heading<span class="tag">&lt;/h1&gt;</span></code></pre>
+        <p>Here <code>&lt;h1&gt;</code> is the opening tag, <code>Heading</code> is the content, and <code>&lt;/h1&gt;</code> is the closing tag. Some elements (e.g. <code>&lt;img&gt;</code>) have no content and are self-closing or written with a trailing slash in XHTML.</p>
+      </section>
+
+      <section id="common-tags" class="tutorial-section">
+        <h2>Common HTML Tags</h2>
+        <div class="table-wrapper">
+          <table class="tutorial-table">
+            <thead>
+              <tr>
+                <th>Tag</th>
+                <th>Purpose</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td><code>&lt;h1&gt;</code> – <code>&lt;h6&gt;</code></td><td>Headings</td></tr>
+              <tr><td><code>&lt;p&gt;</code></td><td>Paragraph</td></tr>
+              <tr><td><code>&lt;a&gt;</code></td><td>Links</td></tr>
+              <tr><td><code>&lt;img&gt;</code></td><td>Images</td></tr>
+              <tr><td><code>&lt;ul&gt;</code>, <code>&lt;ol&gt;</code>, <code>&lt;li&gt;</code></td><td>Lists</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="attributes" class="tutorial-section">
+        <h2>HTML Attributes</h2>
+        <p>Attributes provide extra information about an element. They appear in the opening tag as <code>name="value"</code>.</p>
+        <p><strong>Example:</strong></p>
+        <pre class="pre-block"><code><span class="tag">&lt;img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23ddd'/%3E%3C/svg%3E" alt="Image"&gt;</span></code></pre>
+        <p><strong>Common attributes:</strong></p>
+        <ul>
+          <li><code>src</code> — source (e.g. for images, scripts)</li>
+          <li><code>href</code> — hyperlink URL (for anchors)</li>
+          <li><code>id</code> — unique identifier</li>
+          <li><code>class</code> — one or more CSS class names</li>
+        </ul>
+      </section>
+
+      <section id="block-vs-inline" class="tutorial-section">
+        <h2>Block vs Inline Elements</h2>
+        <div class="tutorial-card-grid">
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Block Elements</h3>
+            <ul style="margin:0; padding-left:1.25rem; font-size:0.9rem; color:var(--color-text-muted); line-height:1.6;">
+              <li>Start on a new line</li>
+              <li>Take full width by default</li>
+              <li>Examples: <code>div</code>, <code>p</code>, <code>h1</code>, <code>table</code></li>
+            </ul>
+          </div>
+          <div class="tutorial-card">
+            <h3 class="tutorial-card__title">Inline Elements</h3>
+            <ul style="margin:0; padding-left:1.25rem; font-size:0.9rem; color:var(--color-text-muted); line-height:1.6;">
+              <li>Stay on the same line</li>
+              <li>Take only the space they need</li>
+              <li>Examples: <code>span</code>, <code>a</code>, <code>img</code>, <code>strong</code></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="validator" class="tutorial-section">
+        <h2>HTML Validator</h2>
+        <p>Validators check HTML documents for syntax errors and compliance with standards. Using them helps catch mistakes and improve compatibility and accessibility.</p>
+        <p><strong>Tools:</strong></p>
+        <ul>
+          <li><strong>W3C Markup Validator</strong> — validator.w3.org</li>
+          <li><strong>Nu HTML Checker</strong> — validator.nu</li>
+        </ul>
+      </section>
+
+      <section id="why-validation" class="tutorial-section">
+        <h2>Why Validation is Important</h2>
+        <div class="info-box">
+          <strong>Benefits of validating HTML:</strong>
+          <ul style="margin:0.5rem 0 0 1.25rem; padding:0;">
+            <li>Ensures browser compatibility</li>
+            <li>Detects coding errors early</li>
+            <li>Improves accessibility</li>
+            <li>Improves SEO</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="how-to-validate" class="tutorial-section">
+        <h2>How to Use a Validator</h2>
+        <ol>
+          <li>Visit <strong>validator.w3.org</strong></li>
+          <li>Upload your HTML file or paste your code (or enter a URL)</li>
+          <li>Fix the errors and warnings shown by the validator</li>
+        </ol>
+      </section>
+
+      <section id="practice" class="tutorial-section code-section">
+        <h2>End-of-Lecture Practice</h2>
+        <p>Practice page for Lecture 3. Run it and change things to see what happens.</p>
+        <div class="code-block-wrap" data-initial-code="PCFET0NUWVBFIGh0bWw+CjxodG1sIGxhbmc9ImVuIj4KPGhlYWQ+CjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij4KPHRpdGxlPkhUTUwgQmFzaWNzIC0gUHJhY3RpY2U8L3RpdGxlPgo8bWV0YSBuYW1lPSJkZXNjcmlwdGlvbiIgY29udGVudD0iUHJhY3RpY2UgcGFnZSBmb3IgTGVjdHVyZSAzIj4KPC9oZWFkPgo8Ym9keT4KPGgxPkhUTUwgQmFzaWNzIFByYWN0aWNlPC9oMT4KPHA+VGhpcyBwYWdlIHVzZXMgYWxsIGtleSBjb25jZXB0cyBmcm9tIExlY3R1cmUgMy48L3A+CjxoMj5TdHJ1Y3R1cmU8L2gyPgo8cD5XZSB1c2UgPGNvZGU+Jmx0O2hlYWQmZ3Q7PC9jb2RlPiBmb3IgbWV0YSBkYXRhIGFuZCA8Y29kZT4mbHQ7Ym9keSZndDs8L2NvZGU+IGZvciBjb250ZW50LjwvcD4KPGgyPkxpbmtzIGFuZCBJbWFnZXM8L2gyPgo8cD5WaXNpdCA8YSBocmVmPSJodHRwczovL3d3dy53My5vcmcvIj5XM0M8L2E+IGZvciB3ZWIgc3RhbmRhcmRzLjwvcD4KPHA+SW1hZ2UgZXhhbXBsZTogPGltZyBzcmM9ImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB3aWR0aD0nMjAwJyBoZWlnaHQ9JzIwMCclM0UlM0NyZWN0IGZpbGw9JyUyM2U4ZThlOCcgd2lkdGg9JzIwMCcgaGVpZ2h0PScyMDAnLyUzRSUzQ3RleHQgZmlsbD0nJTIzOTk5JyBmb250LXNpemU9JzE0JyBmb250LWZhbWlseT0nc2Fucy1zZXJpZicgeD0nMTAwJyB5PScxMDUnIHRleHQtYW5jaG9yPSdtaWRkbGUnJTNFU2FtcGxlIGltYWdlJTNDL3RleHQlM0UlM0Mvc3ZnJTNFIiBhbHQ9IlBsYWNlaG9sZGVyIj48L3A+CjxoMj5MaXN0czwvaDI+Cjx1bD48bGk+VW5vcmRlcmVkIGxpc3QgaXRlbSAxPC9saT48bGk+SXRlbSAyPC9saT48L3VsPgo8b2w+PGxpPk9yZGVyZWQgaXRlbSBvbmU8L2xpPjxsaT5JdGVtIHR3bzwvbGk+PC9vbD4KPGZvb3Rlcj48cD4mY29weTsgV2ViIFRlY2hub2xvZ2llcyBQcmFjdGljZTwvcD48L2Zvb3Rlcj4KPC9ib2R5Pgo8L2h0bWw+">
+          <div class="code-block-header">Practice Example</div>
+          <pre class="pre-block"><code><span class="tag">&lt;!DOCTYPE html&gt;</span>
+<span class="tag">&lt;html lang="en"&gt;</span>
+<span class="tag">&lt;head&gt;</span><span class="tag">&lt;meta charset="utf-8"&gt;</span><span class="tag">&lt;title&gt;</span>HTML Basics - Practice<span class="tag">&lt;/title&gt;</span><span class="tag">&lt;/head&gt;</span>
+<span class="tag">&lt;body&gt;</span>
+<span class="tag">&lt;h1&gt;</span>HTML Basics Practice<span class="tag">&lt;/h1&gt;</span>
+<span class="tag">&lt;p&gt;</span>This page uses structure, head, body, headings, links, images, and lists.<span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;h2&gt;</span>Links and Images<span class="tag">&lt;/h2&gt;</span>
+<span class="tag">&lt;p&gt;</span>Visit <span class="tag">&lt;a href="https://www.w3.org/"&gt;</span>W3C<span class="tag">&lt;/a&gt;</span> for web standards. Image: <span class="tag">&lt;img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100'%3E%3Crect fill='%23ddd' width='100' height='100'/%3E%3Ctext fill='%23999' font-size='12' x='50' y='55' text-anchor='middle'%3Eimg%3C/text%3E%3C/svg%3E" alt="Placeholder"&gt;</span><span class="tag">&lt;/p&gt;</span>
+<span class="tag">&lt;ul&gt;</span><span class="tag">&lt;li&gt;</span>List item 1<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;li&gt;</span>Item 2<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;/ul&gt;</span>
+<span class="tag">&lt;ol&gt;</span><span class="tag">&lt;li&gt;</span>Ordered one<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;li&gt;</span>Two<span class="tag">&lt;/li&gt;</span><span class="tag">&lt;/ol&gt;</span>
+<span class="tag">&lt;footer&gt;</span><span class="tag">&lt;p&gt;</span>Web Technologies Practice<span class="tag">&lt;/p&gt;</span><span class="tag">&lt;/footer&gt;</span>
+<span class="tag">&lt;/body&gt;</span><span class="tag">&lt;/html&gt;</span></code></pre>
+          <div class="code-block-actions">
+            <button type="button" class="btn-code copy-code-btn">Copy Code</button>
+            <button type="button" class="btn-code run-code-btn">Run Code</button>
+            <button type="button" class="btn-code reset-code-btn">Reset Code</button>
+            <button type="button" class="btn try-example-btn">Try it Yourself</button>
+          </div>
+        </div>
+      </section>
+
+      <section id="summary" class="tutorial-section">
+        <h2>Lecture Summary</h2>
+        <div class="summary-box">
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>HTML is the foundation of web development.</li>
+            <li>HTML uses tags and elements to structure pages.</li>
+            <li>XHTML follows stricter syntax rules based on XML.</li>
+            <li>Block and inline elements behave differently in the layout.</li>
+            <li>Validators help ensure correct HTML structure and better compatibility.</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="lecture-nav-buttons">
+        <a href="lecture2.html" class="btn btn--secondary">&#8592; Previous Lecture</a>
+        <a href="lecture4.html" class="btn">Next Lecture &#8594;</a>
+      </nav>
+    </main>
+  </div>
+  <script src="../script.js"></script>
+</body>
+</html>
